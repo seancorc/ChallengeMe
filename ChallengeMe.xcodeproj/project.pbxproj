@@ -15,6 +15,8 @@
 		D637079D21A246FE00D296A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D637079B21A246FE00D296A2 /* LaunchScreen.storyboard */; };
 		D63707A821A246FF00D296A2 /* ChallengeMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63707A721A246FF00D296A2 /* ChallengeMeTests.swift */; };
 		D63707B321A246FF00D296A2 /* ChallengeMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63707B221A246FF00D296A2 /* ChallengeMeUITests.swift */; };
+		D6E774E221A384BF00E9BDF2 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E774E121A384BF00E9BDF2 /* Person.swift */; };
+		D6E774E421A385D000E9BDF2 /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E774E321A385D000E9BDF2 /* PersonViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		D63707AE21A246FF00D296A2 /* ChallengeMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChallengeMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D63707B221A246FF00D296A2 /* ChallengeMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeMeUITests.swift; sourceTree = "<group>"; };
 		D63707B421A246FF00D296A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6E774E121A384BF00E9BDF2 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		D6E774E321A385D000E9BDF2 /* PersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,8 @@
 			children = (
 				D637078F21A246FD00D296A2 /* AppDelegate.swift */,
 				D637079121A246FD00D296A2 /* ViewController.swift */,
+				D6E774E121A384BF00E9BDF2 /* Person.swift */,
+				D6E774E321A385D000E9BDF2 /* PersonViewController.swift */,
 				D637079321A246FD00D296A2 /* Main.storyboard */,
 				D637079921A246FE00D296A2 /* Assets.xcassets */,
 				D637079B21A246FE00D296A2 /* LaunchScreen.storyboard */,
@@ -259,7 +265,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6E774E421A385D000E9BDF2 /* PersonViewController.swift in Sources */,
 				D637079221A246FD00D296A2 /* ViewController.swift in Sources */,
+				D6E774E221A384BF00E9BDF2 /* Person.swift in Sources */,
 				D637079021A246FD00D296A2 /* AppDelegate.swift in Sources */,
 				D637079821A246FD00D296A2 /* ChallengeMe.xcdatamodeld in Sources */,
 			);
