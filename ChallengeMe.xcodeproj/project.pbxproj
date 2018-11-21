@@ -17,11 +17,11 @@
 		D63707B321A246FF00D296A2 /* ChallengeMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63707B221A246FF00D296A2 /* ChallengeMeUITests.swift */; };
 		D6E774E221A384BF00E9BDF2 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E774E121A384BF00E9BDF2 /* Person.swift */; };
 		D6E774E421A385D000E9BDF2 /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E774E321A385D000E9BDF2 /* PersonViewController.swift */; };
-
-		F62C1EB621A4A8E50084892D /* MarketTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62C1EB521A4A8E40084892D /* MarketTableViewController.swift */; };
 		F62C1EB821A4AA490084892D /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62C1EB721A4AA490084892D /* Challenge.swift */; };
 		F62C1EBD21A4ADF70084892D /* ChallengeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62C1EBC21A4ADF70084892D /* ChallengeAPI.swift */; };
-
+		F65403DC21A5CE6C008BA22D /* MarketCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65403DB21A5CE6C008BA22D /* MarketCollectionViewCell.swift */; };
+		F65403DF21A5D205008BA22D /* MarketCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65403DE21A5D205008BA22D /* MarketCollectionViewController.swift */; };
+		F65403E121A5D37C008BA22D /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65403E021A5D37C008BA22D /* ChallengeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,11 +58,11 @@
 		D63707B421A246FF00D296A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6E774E121A384BF00E9BDF2 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		D6E774E321A385D000E9BDF2 /* PersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
-
-		F62C1EB521A4A8E40084892D /* MarketTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTableViewController.swift; sourceTree = "<group>"; };
 		F62C1EB721A4AA490084892D /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		F62C1EBC21A4ADF70084892D /* ChallengeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeAPI.swift; sourceTree = "<group>"; };
-
+		F65403DB21A5CE6C008BA22D /* MarketCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketCollectionViewCell.swift; sourceTree = "<group>"; };
+		F65403DE21A5D205008BA22D /* MarketCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketCollectionViewController.swift; sourceTree = "<group>"; };
+		F65403E021A5D37C008BA22D /* ChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,12 +113,10 @@
 		D637078E21A246FD00D296A2 /* ChallengeMe */ = {
 			isa = PBXGroup;
 			children = (
-
 				F62C1EBE21A4AE260084892D /* API */,
 				F62C1EBA21A4AD620084892D /* Models */,
+				F65403DD21A5CE7C008BA22D /* Cells */,
 				F62C1EBB21A4ADA10084892D /* Layouts */,
-
-
 				D637079321A246FD00D296A2 /* Main.storyboard */,
 				D637079921A246FE00D296A2 /* Assets.xcassets */,
 				D637079B21A246FE00D296A2 /* LaunchScreen.storyboard */,
@@ -146,7 +144,6 @@
 			path = ChallengeMeUITests;
 			sourceTree = "<group>";
 		};
-
 		F62C1EBA21A4AD620084892D /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,9 +156,10 @@
 		F62C1EBB21A4ADA10084892D /* Layouts */ = {
 			isa = PBXGroup;
 			children = (
-				F62C1EB521A4A8E40084892D /* MarketTableViewController.swift */,
 				D6E774E321A385D000E9BDF2 /* PersonViewController.swift */,
+				F65403DE21A5D205008BA22D /* MarketCollectionViewController.swift */,
 				D637079121A246FD00D296A2 /* ViewController.swift */,
+				F65403E021A5D37C008BA22D /* ChallengeViewController.swift */,
 				D637078F21A246FD00D296A2 /* AppDelegate.swift */,
 			);
 			path = Layouts;
@@ -175,7 +173,14 @@
 			path = API;
 			sourceTree = "<group>";
 		};
-
+		F65403DD21A5CE7C008BA22D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F65403DB21A5CE6C008BA22D /* MarketCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -307,16 +312,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				F62C1EB821A4AA490084892D /* Challenge.swift in Sources */,
 				D6E774E421A385D000E9BDF2 /* PersonViewController.swift in Sources */,
 				F62C1EBD21A4ADF70084892D /* ChallengeAPI.swift in Sources */,
-				F62C1EB621A4A8E50084892D /* MarketTableViewController.swift in Sources */,
-
+				F65403DC21A5CE6C008BA22D /* MarketCollectionViewCell.swift in Sources */,
 				D637079221A246FD00D296A2 /* ViewController.swift in Sources */,
 				D6E774E221A384BF00E9BDF2 /* Person.swift in Sources */,
+				F65403E121A5D37C008BA22D /* ChallengeViewController.swift in Sources */,
 				D637079021A246FD00D296A2 /* AppDelegate.swift in Sources */,
 				D637079821A246FD00D296A2 /* ChallengeMe.xcdatamodeld in Sources */,
+				F65403DF21A5D205008BA22D /* MarketCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

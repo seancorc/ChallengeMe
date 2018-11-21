@@ -8,6 +8,8 @@
 
 import UIKit
 
+// This is the "Start Challenge" screen
+
 class ViewController: UIViewController {
     
     var startButton: UIButton = UIButton()

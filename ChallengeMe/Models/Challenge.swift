@@ -10,13 +10,16 @@ import UIKit
 
 class Challenge {
     
-    var title: String
-    var gif: UIImage
+    var description: String
+    //var gif: UIImage
     var time: Int
     
-    init(title: String, gif: UIImage, time: Int) {
-        self.title = title 
-        self.gif = gif
+    init(description: String,
+         //gif: UIImage,
+         time: Int) {
+        
+        self.description = description
+        //self.gif = gif
         self.time = time
     }
 
