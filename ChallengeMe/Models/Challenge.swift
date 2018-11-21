@@ -15,9 +15,10 @@ class Challenge {
     var time: Int
     
     init(title: String, gif: UIImage, time: Int) {
-        self.title = title
+        self.title = title 
         self.gif = gif
         self.time = time
     }
 
+    
 }
