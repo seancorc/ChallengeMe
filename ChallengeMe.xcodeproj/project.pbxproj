@@ -21,7 +21,7 @@
 		F62C1EBD21A4ADF70084892D /* ChallengeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62C1EBC21A4ADF70084892D /* ChallengeAPI.swift */; };
 		F65403DC21A5CE6C008BA22D /* MarketCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65403DB21A5CE6C008BA22D /* MarketCollectionViewCell.swift */; };
 		F65403DF21A5D205008BA22D /* MarketCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65403DE21A5D205008BA22D /* MarketCollectionViewController.swift */; };
-		F65403E121A5D37C008BA22D /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65403E021A5D37C008BA22D /* ChallengeViewController.swift */; };
+		F65403E121A5D37C008BA22D /* CongratsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65403E021A5D37C008BA22D /* CongratsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +62,7 @@
 		F62C1EBC21A4ADF70084892D /* ChallengeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeAPI.swift; sourceTree = "<group>"; };
 		F65403DB21A5CE6C008BA22D /* MarketCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketCollectionViewCell.swift; sourceTree = "<group>"; };
 		F65403DE21A5D205008BA22D /* MarketCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketCollectionViewController.swift; sourceTree = "<group>"; };
-		F65403E021A5D37C008BA22D /* ChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
+		F65403E021A5D37C008BA22D /* CongratsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,7 +159,7 @@
 				D6E774E321A385D000E9BDF2 /* PersonViewController.swift */,
 				F65403DE21A5D205008BA22D /* MarketCollectionViewController.swift */,
 				D637079121A246FD00D296A2 /* ViewController.swift */,
-				F65403E021A5D37C008BA22D /* ChallengeViewController.swift */,
+				F65403E021A5D37C008BA22D /* CongratsViewController.swift */,
 				D637078F21A246FD00D296A2 /* AppDelegate.swift */,
 			);
 			path = Layouts;
@@ -318,7 +318,7 @@
 				F65403DC21A5CE6C008BA22D /* MarketCollectionViewCell.swift in Sources */,
 				D637079221A246FD00D296A2 /* ViewController.swift in Sources */,
 				D6E774E221A384BF00E9BDF2 /* Person.swift in Sources */,
-				F65403E121A5D37C008BA22D /* ChallengeViewController.swift in Sources */,
+				F65403E121A5D37C008BA22D /* CongratsViewController.swift in Sources */,
 				D637079021A246FD00D296A2 /* AppDelegate.swift in Sources */,
 				D637079821A246FD00D296A2 /* ChallengeMe.xcdatamodeld in Sources */,
 				F65403DF21A5D205008BA22D /* MarketCollectionViewController.swift in Sources */,
