@@ -1,5 +1,5 @@
 //
-//  ChallengeViewController.swift
+//  CongratsViewController.swift
 //  ChallengeMe
 //
 //  Created by John Smith on 11/21/18.
@@ -8,12 +8,19 @@
 
 import UIKit
 
-class ChallengeViewController: UIViewController {
+class CongratsViewController: UIViewController {
+    
+    var congratsLabel: UILabel = UILabel()
+    var challengeLabel: UILabel = UILabel()
+    var timeLabel: UILabel = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        congratsLabel.text = "Bodacious Job m8"
+        
+        // Figure out how to do the challengeLabel and timelabel
+        
     }
     
 
