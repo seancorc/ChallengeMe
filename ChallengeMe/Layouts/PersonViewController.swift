@@ -9,6 +9,7 @@
 import UIKit
 
 class PersonViewController: UIViewController {
+    var person: Person!
     var profilePictureView: UIImageView!
     var nameLabel: UILabel!
     var challengesCompletedLabel: UILabel!
@@ -16,8 +17,32 @@ class PersonViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        view.backgroundColor = .white
+        
+        nameLabel = UILabel()
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        nameLabel.text = "first last"
+        nameLabel.textColor = .black
+        nameLabel.textAlignment = .center
+        nameLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        self.view.addSubview(nameLabel)
+        
+        
+        
+        setupConstraints()
+        
         // Do any additional setup after loading the view.
+    }
+    
+    func setupConstraints() {
+        NSLayoutConstraint.activate([
+            nameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            nameLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -view.frame.height / 6),
+            nameLabel.widthAnchor.constraint(equalToConstant: 500),
+            nameLabel.heightAnchor.constraint(equalToConstant: 100)
+            ])
+        
     }
     
 
