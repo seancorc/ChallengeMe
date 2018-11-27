@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D637079021A246FD00D296A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D637078F21A246FD00D296A2 /* AppDelegate.swift */; };
-		D637079221A246FD00D296A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D637079121A246FD00D296A2 /* ViewController.swift */; };
-		D637079521A246FD00D296A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D637079321A246FD00D296A2 /* Main.storyboard */; };
 		D637079821A246FD00D296A2 /* ChallengeMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D637079621A246FD00D296A2 /* ChallengeMe.xcdatamodeld */; };
 		D637079A21A246FE00D296A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D637079921A246FE00D296A2 /* Assets.xcassets */; };
 		D637079D21A246FE00D296A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D637079B21A246FE00D296A2 /* LaunchScreen.storyboard */; };
@@ -17,11 +15,14 @@
 		D63707B321A246FF00D296A2 /* ChallengeMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63707B221A246FF00D296A2 /* ChallengeMeUITests.swift */; };
 		D6E774E221A384BF00E9BDF2 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E774E121A384BF00E9BDF2 /* Person.swift */; };
 		D6E774E421A385D000E9BDF2 /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E774E321A385D000E9BDF2 /* PersonViewController.swift */; };
+		F6196FDE21AB7F58009C9407 /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6196FDD21AB7F58009C9407 /* ChallengeViewController.swift */; };
 		F62C1EB821A4AA490084892D /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62C1EB721A4AA490084892D /* Challenge.swift */; };
 		F62C1EBD21A4ADF70084892D /* ChallengeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62C1EBC21A4ADF70084892D /* ChallengeAPI.swift */; };
-		F65403DC21A5CE6C008BA22D /* MarketCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65403DB21A5CE6C008BA22D /* MarketCollectionViewCell.swift */; };
-		F65403DF21A5D205008BA22D /* MarketCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65403DE21A5D205008BA22D /* MarketCollectionViewController.swift */; };
+		F651F90121AB4E52007FFA85 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F651F90021AB4E51007FFA85 /* ViewController.swift */; };
+		F65403DC21A5CE6C008BA22D /* ChallengeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65403DB21A5CE6C008BA22D /* ChallengeCollectionViewCell.swift */; };
+		F65403DF21A5D205008BA22D /* ChallengeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65403DE21A5D205008BA22D /* ChallengeCollectionViewController.swift */; };
 		F65403E121A5D37C008BA22D /* CongratsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65403E021A5D37C008BA22D /* CongratsViewController.swift */; };
+		F6C5788421AB927900573AC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6C5788221AB927900573AC8 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,8 +45,6 @@
 /* Begin PBXFileReference section */
 		D637078C21A246FD00D296A2 /* ChallengeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChallengeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D637078F21A246FD00D296A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D637079121A246FD00D296A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D637079421A246FD00D296A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D637079721A246FD00D296A2 /* ChallengeMe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ChallengeMe.xcdatamodel; sourceTree = "<group>"; };
 		D637079921A246FE00D296A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D637079C21A246FE00D296A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,11 +57,14 @@
 		D63707B421A246FF00D296A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6E774E121A384BF00E9BDF2 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		D6E774E321A385D000E9BDF2 /* PersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
+		F6196FDD21AB7F58009C9407 /* ChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
 		F62C1EB721A4AA490084892D /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		F62C1EBC21A4ADF70084892D /* ChallengeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeAPI.swift; sourceTree = "<group>"; };
-		F65403DB21A5CE6C008BA22D /* MarketCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketCollectionViewCell.swift; sourceTree = "<group>"; };
-		F65403DE21A5D205008BA22D /* MarketCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketCollectionViewController.swift; sourceTree = "<group>"; };
+		F651F90021AB4E51007FFA85 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F65403DB21A5CE6C008BA22D /* ChallengeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCollectionViewCell.swift; sourceTree = "<group>"; };
+		F65403DE21A5D205008BA22D /* ChallengeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCollectionViewController.swift; sourceTree = "<group>"; };
 		F65403E021A5D37C008BA22D /* CongratsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsViewController.swift; sourceTree = "<group>"; };
+		F6C5788321AB927900573AC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "../../../ChallengeMe-master/ChallengeMe/Base.lproj/Main.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,11 +115,11 @@
 		D637078E21A246FD00D296A2 /* ChallengeMe */ = {
 			isa = PBXGroup;
 			children = (
+				F6C5788221AB927900573AC8 /* Main.storyboard */,
 				F62C1EBE21A4AE260084892D /* API */,
 				F62C1EBA21A4AD620084892D /* Models */,
 				F65403DD21A5CE7C008BA22D /* Cells */,
 				F62C1EBB21A4ADA10084892D /* Layouts */,
-				D637079321A246FD00D296A2 /* Main.storyboard */,
 				D637079921A246FE00D296A2 /* Assets.xcassets */,
 				D637079B21A246FE00D296A2 /* LaunchScreen.storyboard */,
 				D637079E21A246FE00D296A2 /* Info.plist */,
@@ -157,8 +159,9 @@
 			isa = PBXGroup;
 			children = (
 				D6E774E321A385D000E9BDF2 /* PersonViewController.swift */,
-				F65403DE21A5D205008BA22D /* MarketCollectionViewController.swift */,
-				D637079121A246FD00D296A2 /* ViewController.swift */,
+				F65403DE21A5D205008BA22D /* ChallengeCollectionViewController.swift */,
+				F6196FDD21AB7F58009C9407 /* ChallengeViewController.swift */,
+				F651F90021AB4E51007FFA85 /* ViewController.swift */,
 				F65403E021A5D37C008BA22D /* CongratsViewController.swift */,
 				D637078F21A246FD00D296A2 /* AppDelegate.swift */,
 			);
@@ -176,7 +179,7 @@
 		F65403DD21A5CE7C008BA22D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				F65403DB21A5CE6C008BA22D /* MarketCollectionViewCell.swift */,
+				F65403DB21A5CE6C008BA22D /* ChallengeCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -285,9 +288,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6C5788421AB927900573AC8 /* Main.storyboard in Resources */,
 				D637079D21A246FE00D296A2 /* LaunchScreen.storyboard in Resources */,
 				D637079A21A246FE00D296A2 /* Assets.xcassets in Resources */,
-				D637079521A246FD00D296A2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,16 +315,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6196FDE21AB7F58009C9407 /* ChallengeViewController.swift in Sources */,
 				F62C1EB821A4AA490084892D /* Challenge.swift in Sources */,
 				D6E774E421A385D000E9BDF2 /* PersonViewController.swift in Sources */,
 				F62C1EBD21A4ADF70084892D /* ChallengeAPI.swift in Sources */,
-				F65403DC21A5CE6C008BA22D /* MarketCollectionViewCell.swift in Sources */,
-				D637079221A246FD00D296A2 /* ViewController.swift in Sources */,
+				F65403DC21A5CE6C008BA22D /* ChallengeCollectionViewCell.swift in Sources */,
+				F651F90121AB4E52007FFA85 /* ViewController.swift in Sources */,
 				D6E774E221A384BF00E9BDF2 /* Person.swift in Sources */,
 				F65403E121A5D37C008BA22D /* CongratsViewController.swift in Sources */,
 				D637079021A246FD00D296A2 /* AppDelegate.swift in Sources */,
 				D637079821A246FD00D296A2 /* ChallengeMe.xcdatamodeld in Sources */,
-				F65403DF21A5D205008BA22D /* MarketCollectionViewController.swift in Sources */,
+				F65403DF21A5D205008BA22D /* ChallengeCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,20 +361,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D637079321A246FD00D296A2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D637079421A246FD00D296A2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D637079B21A246FE00D296A2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D637079C21A246FE00D296A2 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F6C5788221AB927900573AC8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6C5788321AB927900573AC8 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -497,6 +501,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ChallengeMe;
 				INFOPLIST_FILE = ChallengeMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -514,6 +519,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ChallengeMe;
 				INFOPLIST_FILE = ChallengeMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
