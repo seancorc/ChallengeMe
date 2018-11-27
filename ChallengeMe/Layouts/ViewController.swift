@@ -2,112 +2,62 @@
 //  ViewController.swift
 //  ChallengeMe
 //
-//  Created by Sean Corcoran on 11/18/18.
+//  Created by John Smith on 11/25/18.
 //  Copyright © 2018 ChallengeMe. All rights reserved.
 //
 
 import UIKit
 
-// This is the "Start Challenge" screen
-
 class ViewController: UIViewController {
     
-    var timerLabel: UILabel = UILabel()
-    var startButton: UIButton = UIButton()
-    var timer = Timer()
-    var seconds = 60
-    var isTimerRunning = false
-    var tapped = false
-    var acceptButton: UIButton = UIButton()
-    var cancelButton: UIButton = UIButton()
+    var randomButton: UIButton = UIButton()
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.cancelButton.isEnabled = false
-        
-        navigationItem.title = "Get Challenged M8"
+        navigationItem.title = "Challenge Start Page"
         view.backgroundColor = .white
         
-        acceptButton.setTitle("Accept", for: .normal)
-        acceptButton.setTitleColor(.red, for: .normal)
-        acceptButton.translatesAutoresizingMaskIntoConstraints = false
-        // acceptButton.addTarget(self, action: #selector(pushRedArenaViewController), for: .touchUpInside)
-        view.addSubview(acceptButton)
-
-        cancelButton.setTitle("Cancel", for: .normal)
-        cancelButton.setTitleColor(.red, for: .normal)
-        cancelButton.translatesAutoresizingMaskIntoConstraints = false
-        // cancelButton.addTarget(self, action: #selector(pushRedArenaViewController), for: .touchUpInside)
-        view.addSubview(cancelButton)
-
+        randomButton.setTitle("Random Challenge", for: .normal)
+        randomButton.setTitleColor(.red, for: .normal)
+        randomButton.translatesAutoresizingMaskIntoConstraints = false
+        randomButton.addTarget(self, action: #selector(pushChallengeViewController), for: .touchUpInside)
+        view.addSubview(randomButton)
+        
+        
+        // Constraints
+        
+        let spacing: CGFloat = 40
+        
+        randomButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        randomButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -spacing).isActive = true
         
     }
     
-    // STUFF FOR THE TIMER
-    // TODO: Change seconds to the time from the individual challenge
-    
-    func acceptButtonTapped(_sender: UIButton) {
+    /// Pushes a new Challenge view controller to present a random challenge
+    @objc func pushChallengeViewController(_ target: UIButton) {
         
-        if ( tapped == true && isTimerRunning == false ) {
-            self.acceptButton.setTitle("Completed", for: .normal)
-            runTimer()
-            cancelButton.isEnabled = true
-        }
-        else {
-            self.acceptButton.setTitle("Accept", for: .normal)
-            cancelButton.isEnabled = false
-            timer.invalidate()
-            seconds = 60
-            timerLabel.text = timeString(time: TimeInterval(seconds))
-            isTimerRunning = false
-            // Present the new screen
-        }
+        let challengeViewController = ChallengeViewController()
+                challengeViewController.sender = target
+        //        challengeViewController.name = target.currentTitle
+        //        challengeViewController.color = .red
+        //        challengeViewController.shapeType = .square
+        navigationController?.pushViewController(challengeViewController, animated: true)
+        
+        
+        // Change title from being default back button text
+//        let backButton = UIBarButtonItem()
+//        backButton.title = "Back"
+//        navigationItem.backBarButtonItem = backButton
+        
     }
     
-    func runTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(ViewController.updateTimer)), userInfo: nil, repeats: true)
-        isTimerRunning = true
-    }
-    
-    @objc func updateTimer() {
-        if seconds < 1 {
-            timer.invalidate()
-            // send alert that timer is up
-        }
-        else {
-            seconds -= 1
-            timerLabel.text = timeString(time: TimeInterval(seconds))
-        }
-    }
-    
-//    func pauseButtonTapped(_ sender: UIButton) {
-//        if self.resumeTapped == false {
-//            timer.invalidate()
-//            self.resumeTapped = true
-//        }
-//        else {
-//            runTimer()
-//            self.resumeTapped = false
-//        }
+//    @objc func dismissViewController() {
+//        dismiss(animated: true)
 //    }
+//
+//
     
-    func cancelButtonTapped(_sender: UIButton) {
-        timer.invalidate()
-        seconds = 60
-        timerLabel.text = timeString(time: TimeInterval(seconds))
-        isTimerRunning = false
-        self.acceptButton.setTitle("Accept", for: .normal)
-    }
     
-    func timeString(time: TimeInterval) -> String {
-        let hours = Int(time)/3600
-        let minutes = ((Int(time) / 60)  % 60)
-        let seconds = Int(time) % 60
-        return String(format:"% 02i: %02i: %02i", hours, minutes, seconds)
-    }
-
-
 }
 
