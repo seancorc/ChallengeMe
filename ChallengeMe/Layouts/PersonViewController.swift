@@ -20,15 +20,37 @@ class PersonViewController: UIViewController {
         
         view.backgroundColor = .white
         
+        person = Person(firstName: "first", lastName: "last", profilePicture: nil, challengesCompleted: 0)
+        
         nameLabel = UILabel()
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.text = "first last"
+        nameLabel.text = "First     Last"
         nameLabel.textColor = .black
         nameLabel.textAlignment = .center
-        nameLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        nameLabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         self.view.addSubview(nameLabel)
         
+        challengesCompletedLabel = UILabel()
+        challengesCompletedLabel.translatesAutoresizingMaskIntoConstraints = false
+        challengesCompletedLabel.text = "Challenges Completed: \(person.challengesCompleted)"
+        challengesCompletedLabel.textColor = .black
+        challengesCompletedLabel.textAlignment = .center
+        challengesCompletedLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        self.view.addSubview(challengesCompletedLabel)
         
+        
+        
+        if let profilePicture = person.profilePicture {
+            profilePictureView = UIImageView(image: profilePicture)
+        }
+        else {
+            profilePictureView = UIImageView(image: UIImage(named: "Default Profile Picture"))
+        }
+        
+        profilePictureView.translatesAutoresizingMaskIntoConstraints = false
+        profilePictureView.layer.masksToBounds = true
+        profilePictureView.layer.cornerRadius = 25
+        self.view.addSubview(profilePictureView)
         
         setupConstraints()
         
@@ -38,9 +60,23 @@ class PersonViewController: UIViewController {
     func setupConstraints() {
         NSLayoutConstraint.activate([
             nameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            nameLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -view.frame.height / 6),
+            nameLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             nameLabel.widthAnchor.constraint(equalToConstant: 500),
-            nameLabel.heightAnchor.constraint(equalToConstant: 100)
+            nameLabel.heightAnchor.constraint(equalToConstant: 200)
+            ])
+        
+        NSLayoutConstraint.activate([
+            profilePictureView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            profilePictureView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -view.frame.height/6),
+            profilePictureView.widthAnchor.constraint(equalToConstant: 250),
+            profilePictureView.heightAnchor.constraint(equalToConstant: 250)
+            ])
+        
+        NSLayoutConstraint.activate([
+            challengesCompletedLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            challengesCompletedLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: view.frame.height / 6),
+            challengesCompletedLabel.widthAnchor.constraint(equalToConstant: 500),
+            challengesCompletedLabel.heightAnchor.constraint(equalToConstant: 200)
             ])
         
     }
