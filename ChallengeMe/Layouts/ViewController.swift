@@ -38,7 +38,7 @@ class ViewController: UIViewController {
     @objc func pushChallengeViewController(_ target: UIButton) {
         
         let challengeViewController = ChallengeViewController()
-                challengeViewController.sender = target
+//                challengeViewController.sender = target
         //        challengeViewController.name = target.currentTitle
         //        challengeViewController.color = .red
         //        challengeViewController.shapeType = .square

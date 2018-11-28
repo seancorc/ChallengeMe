@@ -21,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let viewController = ViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
         
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
