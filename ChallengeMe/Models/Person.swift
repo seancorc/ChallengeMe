@@ -34,12 +34,14 @@ class Person {
     var lastName: String
     var profilePicture: UIImage?
     var challengesCompleted: Int
+    var streak: Int
 
-    init(firstName: String, lastName: String, profilePicture: UIImage?, challengesCompleted: Int) {
+    init(firstName: String, lastName: String, profilePicture: UIImage?, challengesCompleted: Int, streak: Int) {
         self.firstName = firstName
         self.lastName = lastName
         self.profilePicture = profilePicture
         self.challengesCompleted = challengesCompleted
+        self.streak = streak
 
     }
 

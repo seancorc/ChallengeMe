@@ -13,6 +13,7 @@ class PersonViewController: UIViewController {
     var profilePictureView: UIImageView!
     var nameLabel: UILabel!
     var challengesCompletedLabel: UILabel!
+    var numberOfChallengesLabel: UILabel!
     var line: UIImageView!
     
     
@@ -21,7 +22,7 @@ class PersonViewController: UIViewController {
         
         view.backgroundColor = .white
         
-        person = Person(firstName: "first", lastName: "last", profilePicture: nil, challengesCompleted: 0)
+        person = Person(firstName: "first", lastName: "last", profilePicture: nil, challengesCompleted: 13, streak: 5)
         
         line = UIImageView(image: UIImage(named: "line"))
         line.translatesAutoresizingMaskIntoConstraints = false
@@ -29,19 +30,28 @@ class PersonViewController: UIViewController {
         
         nameLabel = UILabel()
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.text = "First     Last"
+        nameLabel.text = "First Last"
         nameLabel.textColor = .black
         nameLabel.textAlignment = .center
-        nameLabel.font = UIFont.systemFont(ofSize: 32, weight: .bold)
+        nameLabel.font = UIFont.systemFont(ofSize: 28, weight: .bold)
         self.view.addSubview(nameLabel)
         
         challengesCompletedLabel = UILabel()
         challengesCompletedLabel.translatesAutoresizingMaskIntoConstraints = false
-        challengesCompletedLabel.text = "Challenges Completed: \(person.challengesCompleted)"
+        challengesCompletedLabel.text = "Challenges Completed"
         challengesCompletedLabel.textColor = .black
         challengesCompletedLabel.textAlignment = .center
-        challengesCompletedLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        challengesCompletedLabel.font = UIFont.systemFont(ofSize: 12, weight: .bold)
         self.view.addSubview(challengesCompletedLabel)
+        
+        numberOfChallengesLabel = UILabel()
+        numberOfChallengesLabel.translatesAutoresizingMaskIntoConstraints = false
+        numberOfChallengesLabel.text = "\(person.challengesCompleted)"
+        numberOfChallengesLabel.textColor = .black
+        numberOfChallengesLabel.textAlignment = .center
+        numberOfChallengesLabel.font = UIFont.systemFont(ofSize: 28, weight: .regular)
+        self.view.addSubview(numberOfChallengesLabel)
+        
         
         
         
@@ -78,17 +88,24 @@ class PersonViewController: UIViewController {
             ])
         
         NSLayoutConstraint.activate([
-            challengesCompletedLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            challengesCompletedLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: view.frame.height / 6),
-            challengesCompletedLabel.widthAnchor.constraint(equalToConstant: 500),
-            challengesCompletedLabel.heightAnchor.constraint(equalToConstant: 200)
+            challengesCompletedLabel.trailingAnchor.constraint(equalTo: line.leadingAnchor),
+            challengesCompletedLabel.centerYAnchor.constraint(equalTo: line.bottomAnchor, constant: -16),
+            challengesCompletedLabel.widthAnchor.constraint(equalToConstant: 150),
+            challengesCompletedLabel.heightAnchor.constraint(equalToConstant: 75)
+            ])
+        
+        NSLayoutConstraint.activate([
+            numberOfChallengesLabel.centerXAnchor.constraint(equalTo: challengesCompletedLabel.centerXAnchor),
+            numberOfChallengesLabel.centerYAnchor.constraint(equalTo: challengesCompletedLabel.topAnchor, constant: -4),
+            numberOfChallengesLabel.widthAnchor.constraint(equalToConstant: 50),
+            numberOfChallengesLabel.heightAnchor.constraint(equalToConstant: 150)
             ])
         
         NSLayoutConstraint.activate([
             line.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             line.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: view.frame.height/8),
-            line.widthAnchor.constraint(equalToConstant: 3),
-            line.heightAnchor.constraint(equalToConstant: 100)
+            line.widthAnchor.constraint(equalToConstant: 2),
+            line.heightAnchor.constraint(equalToConstant: 75)
             ])
         
     }
