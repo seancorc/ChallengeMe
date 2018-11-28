@@ -10,19 +10,37 @@ import Foundation
 import UIKit
 
 
+//struct Person: Codable {
+//
+//    var firstName: String
+//    var lastName: String
+//    var profilePicture: Data
+//    var challengesCompleted: Int
+//
+////    init(firstName: String, lastName: String, profilePicture: UIImage?, challengesCompleted: Int) {
+////        self.firstName = firstName
+////        self.lastName = lastName
+////        self.profilePicture = profilePicture
+////        self.challengesCompleted = challengesCompleted
+////
+////    }
+//
+//
+//}
+
 class Person {
-    let firstName: String
-    let lastName: String
-    let profilePicture: UIImage
-    let challengesCompleted: Int
     
-    init(firstName: String, lastName: String, profilePicture: UIImage, challengesCompleted: Int) {
+    var firstName: String
+    var lastName: String
+    var profilePicture: UIImage?
+    var challengesCompleted: Int
+
+    init(firstName: String, lastName: String, profilePicture: UIImage?, challengesCompleted: Int) {
         self.firstName = firstName
         self.lastName = lastName
         self.profilePicture = profilePicture
         self.challengesCompleted = challengesCompleted
-        
+
     }
-    
-    
+
 }
