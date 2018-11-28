@@ -36,12 +36,9 @@ class ViewController: UIViewController {
     
     /// Pushes a new Challenge view controller to present a random challenge
     @objc func pushChallengeViewController(_ target: UIButton) {
-        
-        let challengeViewController = ChallengeViewController()
-//                challengeViewController.sender = target
-        //        challengeViewController.name = target.currentTitle
-        //        challengeViewController.color = .red
-        //        challengeViewController.shapeType = .square
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let challengeViewController = ChallengeViewController(collectionViewLayout: layout)
         navigationController?.pushViewController(challengeViewController, animated: true)
         
         

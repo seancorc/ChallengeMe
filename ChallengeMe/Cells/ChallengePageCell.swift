@@ -12,14 +12,13 @@ import UIKit
 
 class ChallengePageCell: UICollectionViewCell {
     
-    var timerLabel: UILabel = UILabel()
-    var startButton: UIButton = UIButton()
+    var timerLabel: UILabel!
     var timer = Timer()
     var seconds = 60
     var isTimerRunning = false
     var tapped = false
-    var acceptButton: UIButton = UIButton()
-    var cancelButton: UIButton = UIButton()
+    var acceptButton: UIButton!
+    var cancelButton: UIButton!
     
     var sender: UIButton? = nil
     
@@ -30,62 +29,48 @@ class ChallengePageCell: UICollectionViewCell {
         super.init(frame: frame)
         
         
-        self.cancelButton.isEnabled = false
         
-//        navigationItem.title = "Get Challenged M8"
-//        view.backgroundColor = .white
-        
+        acceptButton = UIButton()
         acceptButton.setTitle("Accept", for: .normal)
         acceptButton.setTitleColor(.red, for: .normal)
         acceptButton.translatesAutoresizingMaskIntoConstraints = false
         acceptButton.addTarget(self, action: #selector(acceptButtonTapped), for: .touchUpInside)
         addSubview(acceptButton)
         
+        cancelButton = UIButton()
         cancelButton.setTitle("Cancel", for: .normal)
         cancelButton.setTitleColor(.red, for: .normal)
+        cancelButton.isHidden = true
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
         cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
         addSubview(cancelButton)
         
+        timerLabel = UILabel()
         timerLabel.text = "\(timeString)"
         timerLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(timerLabel)
         
         
-        // Constraints
-        
-//        acceptButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        acceptButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -spacing).isActive = true
-//
-//        cancelButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        cancelButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: spacing).isActive = true
-        
-        
+
+
         setupConstraints()
         
     }
     
     func setupConstraints() {
-        let topImageContainerView = UIView()
-        addSubview(topImageContainerView)
-        topImageContainerView.translatesAutoresizingMaskIntoConstraints = false
-        
-        topImageContainerView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        
-        topImageContainerView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        topImageContainerView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+
         
         NSLayoutConstraint.activate([
-            timerLabel.centerXAnchor.constraint(equalTo: topImageContainerView.centerXAnchor),
-            timerLabel.centerYAnchor.constraint(equalTo: topImageContainerView.centerYAnchor, constant: spacing)
+            timerLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            timerLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -contentView.frame.height / 6)
             ])
         NSLayoutConstraint.activate([
-            acceptButton.centerXAnchor.constraint(equalTo: topImageContainerView.centerXAnchor),
-            acceptButton.centerYAnchor.constraint(equalTo: topImageContainerView.centerYAnchor, constant: spacing)
+            acceptButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            acceptButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing)
             ])
         NSLayoutConstraint.activate([
-            cancelButton.centerXAnchor.constraint(equalTo: topImageContainerView.centerXAnchor),
-            cancelButton.centerYAnchor.constraint(equalTo: topImageContainerView.centerYAnchor, constant: spacing)
+            cancelButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            cancelButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing)
             
             ])
 
@@ -97,11 +82,11 @@ class ChallengePageCell: UICollectionViewCell {
     // TODO: Change seconds to the time from the individual challenge
     
     @objc func acceptButtonTapped(_sender: UIButton) {
+        cancelButton.isHidden = false
+        runTimer()
         
         if ( tapped == true && isTimerRunning == false ) {
             self.acceptButton.setTitle("Completed", for: .normal)
-            runTimer()
-            cancelButton.isEnabled = true
         }
         else {
             self.acceptButton.setTitle("Accept", for: .normal)

@@ -13,6 +13,7 @@ class PersonViewController: UIViewController {
     var profilePictureView: UIImageView!
     var nameLabel: UILabel!
     var challengesCompletedLabel: UILabel!
+    var line: UIImageView!
     
     
     override func viewDidLoad() {
@@ -22,12 +23,16 @@ class PersonViewController: UIViewController {
         
         person = Person(firstName: "first", lastName: "last", profilePicture: nil, challengesCompleted: 0)
         
+        line = UIImageView(image: UIImage(named: "line"))
+        line.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(line)
+        
         nameLabel = UILabel()
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.text = "First     Last"
         nameLabel.textColor = .black
         nameLabel.textAlignment = .center
-        nameLabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        nameLabel.font = UIFont.systemFont(ofSize: 32, weight: .bold)
         self.view.addSubview(nameLabel)
         
         challengesCompletedLabel = UILabel()
@@ -49,7 +54,7 @@ class PersonViewController: UIViewController {
         
         profilePictureView.translatesAutoresizingMaskIntoConstraints = false
         profilePictureView.layer.masksToBounds = true
-        profilePictureView.layer.cornerRadius = 25
+        profilePictureView.layer.cornerRadius = 75
         self.view.addSubview(profilePictureView)
         
         setupConstraints()
@@ -67,9 +72,9 @@ class PersonViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             profilePictureView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            profilePictureView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -view.frame.height/6),
-            profilePictureView.widthAnchor.constraint(equalToConstant: 250),
-            profilePictureView.heightAnchor.constraint(equalToConstant: 250)
+            profilePictureView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -view.frame.height/8),
+            profilePictureView.widthAnchor.constraint(equalToConstant: 150),
+            profilePictureView.heightAnchor.constraint(equalToConstant: 150)
             ])
         
         NSLayoutConstraint.activate([
@@ -77,6 +82,13 @@ class PersonViewController: UIViewController {
             challengesCompletedLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: view.frame.height / 6),
             challengesCompletedLabel.widthAnchor.constraint(equalToConstant: 500),
             challengesCompletedLabel.heightAnchor.constraint(equalToConstant: 200)
+            ])
+        
+        NSLayoutConstraint.activate([
+            line.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            line.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: view.frame.height/8),
+            line.widthAnchor.constraint(equalToConstant: 3),
+            line.heightAnchor.constraint(equalToConstant: 100)
             ])
         
     }
