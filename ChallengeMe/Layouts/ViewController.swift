@@ -27,10 +27,9 @@ class ViewController: UIViewController {
         
         // Constraints
         
-        let spacing: CGFloat = 40
         
         randomButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        randomButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -spacing).isActive = true
+        randomButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
     }
     

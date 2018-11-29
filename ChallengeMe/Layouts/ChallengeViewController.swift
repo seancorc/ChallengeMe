@@ -2,10 +2,16 @@
 
 import UIKit
 
+
+
 class ChallengeViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView?.backgroundColor = .white
@@ -13,6 +19,7 @@ class ChallengeViewController: UICollectionViewController, UICollectionViewDeleg
         
         collectionView?.isPagingEnabled = true
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
@@ -24,7 +31,8 @@ class ChallengeViewController: UICollectionViewController, UICollectionViewDeleg
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! ChallengePageCell
-
+        cell.acceptedDelegate = self
+        cell.canceledDelegate = self
         return cell
     }
     
@@ -32,4 +40,16 @@ class ChallengeViewController: UICollectionViewController, UICollectionViewDeleg
         return CGSize(width: view.frame.width, height: view.frame.height)
     }
     
+}
+
+extension ChallengeViewController: ButtonDelegate {
+    func cancelButtonWasTapped() {
+        collectionView.isScrollEnabled = true
+    }
+    
+
+    func acceptButtonWasTapped() {
+        collectionView.isScrollEnabled = false
+    }
+
 }

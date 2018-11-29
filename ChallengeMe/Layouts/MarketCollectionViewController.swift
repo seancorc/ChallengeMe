@@ -32,7 +32,7 @@ class MarketCollectionViewController: UIViewController, UICollectionViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "My Challenges"
+        navigationController!.navigationItem.title = "My Challenges"
         edgesForExtendedLayout = [] // gets rid of views going under navigation controller
         
         Challenges = ChallengeAPI.getChallenges()

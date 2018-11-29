@@ -10,6 +10,11 @@ import UIKit
 
 // This is the "Start Challenge" screen
 
+protocol ButtonDelegate: class {
+    func acceptButtonWasTapped()
+    func cancelButtonWasTapped()
+}
+
 class ChallengePageCell: UICollectionViewCell {
     
     var timerLabel: UILabel!
@@ -19,12 +24,12 @@ class ChallengePageCell: UICollectionViewCell {
     var isTimerRunning = false
     var acceptButton: UIButton!
     var cancelButton: UIButton!
-
+    weak var acceptedDelegate: ButtonDelegate?
+    weak var canceledDelegate: ButtonDelegate?
     
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         
         
         acceptButton = UIButton()
@@ -86,8 +91,9 @@ class ChallengePageCell: UICollectionViewCell {
     @objc func acceptButtonTapped() {
         acceptButton.isHidden = true
         cancelButton.isHidden = false
+        acceptedDelegate?.acceptButtonWasTapped()
         runTimer()
-
+        
     }
     
     @objc func cancelButtonTapped() {
@@ -97,6 +103,7 @@ class ChallengePageCell: UICollectionViewCell {
         timer.invalidate()
         timerLabel.text = "\(seconds)"
         isTimerRunning = false
+        canceledDelegate?.cancelButtonWasTapped()
     }
     
     
