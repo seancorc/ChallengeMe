@@ -13,8 +13,14 @@ class PersonViewController: UIViewController {
     var profilePictureView: UIImageView!
     var nameLabel: UILabel!
     var challengesCompletedLabel: UILabel!
+    var streakLabel: UILabel!
     var numberOfChallengesLabel: UILabel!
-    var line: UIImageView!
+    var streakNumberLabel: UILabel!
+    var Vline: UIImageView!
+    var Hline:UIImageView!
+    var check: UIImageView!
+    var fire: UIImageView!
+    var orangeRect: UIImageView!
     
     
     override func viewDidLoad() {
@@ -24,9 +30,25 @@ class PersonViewController: UIViewController {
         
         person = Person(firstName: "first", lastName: "last", profilePicture: nil, challengesCompleted: 13, streak: 5)
         
-        line = UIImageView(image: UIImage(named: "line"))
-        line.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(line)
+        Vline = UIImageView(image: UIImage(named: "Vline"))
+        Vline.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(Vline)
+        
+        Hline = UIImageView(image: UIImage(named: "Hline"))
+        Hline.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(Hline)
+        
+        check = UIImageView(image: UIImage(named: "check"))
+        check.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(check)
+        
+        fire = UIImageView(image: UIImage(named: "fire"))
+        fire.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(fire)
+        
+        orangeRect = UIImageView(image: UIImage(named: "Orange Rectangle"))
+        orangeRect.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(orangeRect)
         
         nameLabel = UILabel()
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -38,14 +60,35 @@ class PersonViewController: UIViewController {
         
         challengesCompletedLabel = UILabel()
         challengesCompletedLabel.translatesAutoresizingMaskIntoConstraints = false
+        challengesCompletedLabel.sizeToFit()
         challengesCompletedLabel.text = "Challenges Completed"
         challengesCompletedLabel.textColor = .black
         challengesCompletedLabel.textAlignment = .center
         challengesCompletedLabel.font = UIFont.systemFont(ofSize: 12, weight: .bold)
         self.view.addSubview(challengesCompletedLabel)
+
+        streakLabel = UILabel()
+        streakLabel.translatesAutoresizingMaskIntoConstraints = false
+        streakLabel.text = "Streak"
+        streakLabel.sizeToFit()
+        streakLabel.textColor = .black
+        streakLabel.textAlignment = .center
+        streakLabel.font = UIFont.systemFont(ofSize: 12, weight: .bold)
+        self.view.addSubview(streakLabel)
         
+        streakNumberLabel = UILabel()
+        streakNumberLabel.translatesAutoresizingMaskIntoConstraints = false
+        streakNumberLabel.text = "\(person.streak)"
+        streakNumberLabel.sizeToFit()
+        streakNumberLabel.textColor = .black
+        streakNumberLabel.textAlignment = .center
+        streakNumberLabel.font = UIFont.systemFont(ofSize: 28, weight: .regular)
+        self.view.addSubview(streakNumberLabel)
+        
+        self.view.addSubview(challengesCompletedLabel)
         numberOfChallengesLabel = UILabel()
         numberOfChallengesLabel.translatesAutoresizingMaskIntoConstraints = false
+        numberOfChallengesLabel.sizeToFit()
         numberOfChallengesLabel.text = "\(person.challengesCompleted)"
         numberOfChallengesLabel.textColor = .black
         numberOfChallengesLabel.textAlignment = .center
@@ -73,6 +116,15 @@ class PersonViewController: UIViewController {
     }
     
     func setupConstraints() {
+        
+        NSLayoutConstraint.activate([
+            orangeRect.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            orangeRect.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            orangeRect.topAnchor.constraint(equalTo: view.topAnchor),
+        orangeRect.bottomAnchor.constraint(equalTo: profilePictureView.centerYAnchor)
+            
+            ])
+        
         NSLayoutConstraint.activate([
             nameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             nameLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -88,24 +140,52 @@ class PersonViewController: UIViewController {
             ])
         
         NSLayoutConstraint.activate([
-            challengesCompletedLabel.trailingAnchor.constraint(equalTo: line.leadingAnchor),
-            challengesCompletedLabel.centerYAnchor.constraint(equalTo: line.bottomAnchor, constant: -16),
-            challengesCompletedLabel.widthAnchor.constraint(equalToConstant: 150),
-            challengesCompletedLabel.heightAnchor.constraint(equalToConstant: 75)
+            challengesCompletedLabel.trailingAnchor.constraint(equalTo: Vline.leadingAnchor, constant: -8),
+            challengesCompletedLabel.centerYAnchor.constraint(equalTo: Vline.bottomAnchor, constant: -16),
+            ])
+        
+        NSLayoutConstraint.activate([
+            streakLabel.leadingAnchor.constraint(equalTo: Vline.trailingAnchor, constant: 8),
+            streakLabel.centerYAnchor.constraint(equalTo: Vline.bottomAnchor, constant: -16),
             ])
         
         NSLayoutConstraint.activate([
             numberOfChallengesLabel.centerXAnchor.constraint(equalTo: challengesCompletedLabel.centerXAnchor),
-            numberOfChallengesLabel.centerYAnchor.constraint(equalTo: challengesCompletedLabel.topAnchor, constant: -4),
-            numberOfChallengesLabel.widthAnchor.constraint(equalToConstant: 50),
-            numberOfChallengesLabel.heightAnchor.constraint(equalToConstant: 150)
+            numberOfChallengesLabel.bottomAnchor.constraint(equalTo: challengesCompletedLabel.topAnchor, constant: -16),
             ])
         
         NSLayoutConstraint.activate([
-            line.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            line.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: view.frame.height/8),
-            line.widthAnchor.constraint(equalToConstant: 2),
-            line.heightAnchor.constraint(equalToConstant: 75)
+            streakNumberLabel.leadingAnchor.constraint(equalTo: fire.trailingAnchor, constant: 8),
+            streakNumberLabel.bottomAnchor.constraint(equalTo: streakLabel.topAnchor, constant: -16),
+            ])
+        
+        
+        NSLayoutConstraint.activate([
+            Vline.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            Vline.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: view.frame.height/8),
+            Vline.widthAnchor.constraint(equalToConstant: 10),
+            Vline.heightAnchor.constraint(equalToConstant: 75)
+            ])
+        
+        NSLayoutConstraint.activate([
+            Hline.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            Hline.topAnchor.constraint(equalTo: Vline.bottomAnchor, constant: -8),
+            Hline.widthAnchor.constraint(equalToConstant: 350),
+            Hline.heightAnchor.constraint(equalToConstant: 10)
+            ])
+        
+        NSLayoutConstraint.activate([
+            check.trailingAnchor.constraint(equalTo: numberOfChallengesLabel.leadingAnchor, constant: -8),
+            check.centerYAnchor.constraint(equalTo: numberOfChallengesLabel.centerYAnchor),
+            check.widthAnchor.constraint(equalToConstant: 30),
+            check.heightAnchor.constraint(equalToConstant: 30)
+            ])
+        
+        NSLayoutConstraint.activate([
+            fire.leadingAnchor.constraint(equalTo: Vline.trailingAnchor, constant: 8),
+            fire.centerYAnchor.constraint(equalTo: streakNumberLabel.centerYAnchor),
+            fire.widthAnchor.constraint(equalToConstant: 30),
+            fire.heightAnchor.constraint(equalToConstant: 30)
             ])
         
     }

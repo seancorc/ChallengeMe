@@ -27,11 +27,13 @@ class MainTabBarController: UITabBarController {
     
     
     func setupTabBar() {
-        let viewController = UINavigationController(rootViewController: ViewController())
-        viewController.tabBarItem.image = UIImage(named: "home")
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let challengeController = UINavigationController(rootViewController: ChallengeViewController(collectionViewLayout: layout))
+        challengeController.tabBarItem.image = UIImage(named: "home")
         //viewController.title = "Home"
         
-        let marketController = UINavigationController(rootViewController: MarketCollectionViewController())
+        let marketController = UINavigationController(rootViewController: MarketTableViewController())
         marketController.tabBarItem.image = UIImage(named: "marketplace")
         //marketController.title = "Marketplace"
 
@@ -45,7 +47,7 @@ class MainTabBarController: UITabBarController {
         
        
         
-        let viewControllersArray = [viewController, marketController, friendsController, personController]
+        let viewControllersArray = [challengeController, marketController, friendsController, personController]
         self.viewControllers = viewControllersArray
     }
 

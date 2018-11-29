@@ -9,7 +9,6 @@
 import UIKit
 
 class Challenge {
-    
     var description: String
     //var gif: UIImage
     var time: Int

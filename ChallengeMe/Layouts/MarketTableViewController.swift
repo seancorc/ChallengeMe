@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FriendsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MarketTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -19,12 +19,12 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(FriendTableViewCell.self, forCellReuseIdentifier: "cellID")
+        tableView.register(MarketPlaceTableViewCell.self, forCellReuseIdentifier: "cellID")
         tableView.backgroundColor = .white
         self.view.addSubview(tableView)
         
         setupConstraints()
-        
+
         // Do any additional setup after loading the view.
     }
     
@@ -44,7 +44,7 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as! FriendTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as! MarketPlaceTableViewCell
         cell.awakeFromNib()
         cell.updateConstraints()
         return cell
@@ -56,4 +56,3 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
     
     
 }
-
