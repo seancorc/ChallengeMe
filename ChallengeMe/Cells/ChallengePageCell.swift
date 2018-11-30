@@ -37,6 +37,12 @@ class ChallengePageCell: UICollectionViewCell {
         acceptButton = UIButton()
         acceptButton.setTitle("Accept", for: .normal)
         acceptButton.setTitleColor(.white, for: .normal)
+        acceptButton.titleLabel?.font = UIFont(name: "KohinoorTelugu-Regular", size: 28)
+        acceptButton.backgroundColor = UIColor.init(red: 54/255, green: 63/255, blue: 69/255, alpha: 0.4)
+        acceptButton.layer.masksToBounds = true
+        acceptButton.layer.cornerRadius = 10
+        acceptButton.layer.borderColor = UIColor.lightGray.cgColor
+        acceptButton.layer.borderWidth = 2
         acceptButton.translatesAutoresizingMaskIntoConstraints = false
         acceptButton.addTarget(self, action: #selector(acceptButtonTapped), for: .touchUpInside)
         addSubview(acceptButton)
@@ -44,6 +50,12 @@ class ChallengePageCell: UICollectionViewCell {
         cancelButton = UIButton()
         cancelButton.setTitle("Cancel", for: .normal)
         cancelButton.setTitleColor(.white, for: .normal)
+        cancelButton.titleLabel?.font = UIFont(name: "KohinoorTelugu-Regular", size: 28)
+        cancelButton.backgroundColor = UIColor.init(red: 54/255, green: 63/255, blue: 69/255, alpha: 0.4)
+        cancelButton.layer.masksToBounds = true
+        cancelButton.layer.cornerRadius = 10
+        cancelButton.layer.borderColor = UIColor.lightGray.cgColor
+        cancelButton.layer.borderWidth = 2
         cancelButton.isHidden = true
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
         cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
@@ -85,21 +97,22 @@ class ChallengePageCell: UICollectionViewCell {
 
         
         NSLayoutConstraint.activate([
-            timerLabel.centerXAnchor.constraint(equalTo: timerDescriptionLabel.centerXAnchor, constant: 50),
+            timerLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             timerLabel.centerYAnchor.constraint(equalTo: timerDescriptionLabel.centerYAnchor)
             ])
         NSLayoutConstraint.activate([
             acceptButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            acceptButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: contentView.frame.width / 8)
+            acceptButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: contentView.frame.width / 8),
+            acceptButton.widthAnchor.constraint(equalToConstant: 150)
             ])
         NSLayoutConstraint.activate([
             cancelButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            cancelButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: contentView.frame.width / 8)
-            
+            cancelButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: contentView.frame.width / 8),
+            cancelButton.widthAnchor.constraint(equalToConstant: 150)
             ])
         NSLayoutConstraint.activate([
-            timerDescriptionLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -contentView.frame.height / 7),
-            timerDescriptionLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: -contentView.frame.width / 9)
+            timerDescriptionLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: -contentView.frame.width / 4),
+            timerDescriptionLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -contentView.frame.height / 7)
             ])
         NSLayoutConstraint.activate([
             challengeLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
