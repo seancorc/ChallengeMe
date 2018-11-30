@@ -16,7 +16,6 @@ protocol ButtonDelegate: class {
 }
 
 class ChallengePageCell: UICollectionViewCell {
-    
     var timerLabel: UILabel!
     var timer: Timer!
     var seconds = 60
@@ -26,13 +25,13 @@ class ChallengePageCell: UICollectionViewCell {
     var cancelButton: UIButton!
     weak var acceptedDelegate: ButtonDelegate?
     weak var canceledDelegate: ButtonDelegate?
-    var timerDescriptionLabel: UILabel!
     var challengeLabel: UILabel!
     
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.contentView.backgroundColor = UIColor(patternImage: UIImage(named: "orangeimage")!)
+        
+        backgroundView = UIImageView(image: UIImage(named: "Orange Rectangle"))
         
         acceptButton = UIButton()
         acceptButton.setTitle("Accept", for: .normal)
@@ -62,18 +61,18 @@ class ChallengePageCell: UICollectionViewCell {
         addSubview(cancelButton)
         
         timerLabel = UILabel()
-        timerLabel.text = "\(seconds)"
+        timerLabel.text = "   Timer:           \(seconds)"
         timerLabel.textColor = UIColor.white
         timerLabel.translatesAutoresizingMaskIntoConstraints = false
         timerLabel.font = UIFont(name: "KohinoorTelugu-Regular", size: 24)
+        timerLabel.backgroundColor = UIColor.init(red: 54/255, green: 63/255, blue: 69/255, alpha: 0.4)
+        timerLabel.layer.masksToBounds = true
+        timerLabel.layer.cornerRadius = 10
+        timerLabel.layer.borderColor = UIColor.lightGray.cgColor
+        timerLabel.layer.borderWidth = 2
+        timerLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(timerLabel)
         
-        timerDescriptionLabel = UILabel()
-        timerDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        timerDescriptionLabel.text = "Timer:"
-        timerDescriptionLabel.textColor = UIColor.white
-        timerDescriptionLabel.font = UIFont(name: "KohinoorTelugu-Regular", size: 24)
-        addSubview(timerDescriptionLabel)
         
         challengeLabel = UILabel()
         challengeLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -97,8 +96,10 @@ class ChallengePageCell: UICollectionViewCell {
 
         
         NSLayoutConstraint.activate([
-            timerLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            timerLabel.centerYAnchor.constraint(equalTo: timerDescriptionLabel.centerYAnchor)
+            timerLabel.leadingAnchor.constraint(equalTo: contentView.centerXAnchor, constant: -contentView.frame.width / 2 + 24),
+            timerLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant:-contentView.frame.height / 8),
+            timerLabel.widthAnchor.constraint(equalToConstant: 300),
+            timerLabel.heightAnchor.constraint(equalToConstant: 50)
             ])
         NSLayoutConstraint.activate([
             acceptButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
@@ -110,10 +111,7 @@ class ChallengePageCell: UICollectionViewCell {
             cancelButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: contentView.frame.width / 8),
             cancelButton.widthAnchor.constraint(equalToConstant: 150)
             ])
-        NSLayoutConstraint.activate([
-            timerDescriptionLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: -contentView.frame.width / 4),
-            timerDescriptionLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -contentView.frame.height / 7)
-            ])
+
         NSLayoutConstraint.activate([
             challengeLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             challengeLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -contentView.frame.height / 4)
@@ -137,7 +135,7 @@ class ChallengePageCell: UICollectionViewCell {
         cancelButton.isHidden = true
         acceptButton.isHidden = false
         timer.invalidate()
-        timerLabel.text = "\(seconds)"
+        timerLabel.text = "   Timer:           \(seconds)"
         isTimerRunning = false
         canceledDelegate?.cancelButtonWasTapped()
     }
@@ -151,7 +149,7 @@ class ChallengePageCell: UICollectionViewCell {
 
     @objc func updateTimer() {
         secondsCopy -= 1
-        timerLabel.text = "\(secondsCopy)"
+        timerLabel.text = "   Timer:           \(secondsCopy)"
     }
     
     
