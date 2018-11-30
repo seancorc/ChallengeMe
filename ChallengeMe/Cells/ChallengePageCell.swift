@@ -26,22 +26,24 @@ class ChallengePageCell: UICollectionViewCell {
     var cancelButton: UIButton!
     weak var acceptedDelegate: ButtonDelegate?
     weak var canceledDelegate: ButtonDelegate?
+    var timerDescriptionLabel: UILabel!
+    var challengeLabel: UILabel!
     
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        self.contentView.backgroundColor = UIColor(patternImage: UIImage(named: "orangeimage")!)
         
         acceptButton = UIButton()
         acceptButton.setTitle("Accept", for: .normal)
-        acceptButton.setTitleColor(.red, for: .normal)
+        acceptButton.setTitleColor(.white, for: .normal)
         acceptButton.translatesAutoresizingMaskIntoConstraints = false
         acceptButton.addTarget(self, action: #selector(acceptButtonTapped), for: .touchUpInside)
         addSubview(acceptButton)
         
         cancelButton = UIButton()
         cancelButton.setTitle("Cancel", for: .normal)
-        cancelButton.setTitleColor(.red, for: .normal)
+        cancelButton.setTitleColor(.white, for: .normal)
         cancelButton.isHidden = true
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
         cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
@@ -49,9 +51,24 @@ class ChallengePageCell: UICollectionViewCell {
         
         timerLabel = UILabel()
         timerLabel.text = "\(seconds)"
+        timerLabel.textColor = UIColor.white
         timerLabel.translatesAutoresizingMaskIntoConstraints = false
+        timerLabel.font = UIFont(name: "KohinoorTelugu-Regular", size: 24)
         addSubview(timerLabel)
         
+        timerDescriptionLabel = UILabel()
+        timerDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        timerDescriptionLabel.text = "Timer:"
+        timerDescriptionLabel.textColor = UIColor.white
+        timerDescriptionLabel.font = UIFont(name: "KohinoorTelugu-Regular", size: 24)
+        addSubview(timerDescriptionLabel)
+        
+        challengeLabel = UILabel()
+        challengeLabel.translatesAutoresizingMaskIntoConstraints = false
+        challengeLabel.text = "Insert Challenge Here"
+        challengeLabel.textColor = UIColor.white
+        challengeLabel.font = UIFont(name: "KohinoorTelugu-Regular", size: 34)
+        addSubview(challengeLabel)
         
 
 
@@ -68,20 +85,26 @@ class ChallengePageCell: UICollectionViewCell {
 
         
         NSLayoutConstraint.activate([
-            timerLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            timerLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -contentView.frame.height / 6)
+            timerLabel.centerXAnchor.constraint(equalTo: timerDescriptionLabel.centerXAnchor, constant: 50),
+            timerLabel.centerYAnchor.constraint(equalTo: timerDescriptionLabel.centerYAnchor)
             ])
         NSLayoutConstraint.activate([
             acceptButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            acceptButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+            acceptButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: contentView.frame.width / 8)
             ])
         NSLayoutConstraint.activate([
             cancelButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            cancelButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+            cancelButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: contentView.frame.width / 8)
             
             ])
-
-
+        NSLayoutConstraint.activate([
+            timerDescriptionLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -contentView.frame.height / 7),
+            timerDescriptionLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: -contentView.frame.width / 9)
+            ])
+        NSLayoutConstraint.activate([
+            challengeLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            challengeLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -contentView.frame.height / 4)
+            ])
     }
     
     
