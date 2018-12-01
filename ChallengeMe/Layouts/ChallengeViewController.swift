@@ -7,6 +7,7 @@ import UIKit
 class ChallengeViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
 
+    var challengeImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,25 @@ class ChallengeViewController: UICollectionViewController, UICollectionViewDeleg
         collectionView?.register(ChallengePageCell.self, forCellWithReuseIdentifier: "cellId")
         
         collectionView?.isPagingEnabled = true
+        
+        
+        
+    }
+    
+    func setupConstraints() {
+        NSLayoutConstraint.activate([
+            challengeImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            challengeImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: contentView.frame.height / 4)
+            ])
+    }
+    
+    func getChallenges() {
+        JasonsNetworkManager.getChallenges { challengesArray in self.challenges = challengesArray
+            DispatchQueue.main.async {
+                self.reloadData()
+            }
+            
+        }
     }
     
     

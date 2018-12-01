@@ -6,21 +6,15 @@
 //  Copyright © 2018 ChallengeMe. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class Challenge {
-    var description: String
-    //var gif: UIImage
-    var time: Int
-    
-    init(description: String,
-         //gif: UIImage,
-         time: Int) {
-        
-        self.description = description
-        //self.gif = gif
-        self.time = time
-    }
+struct ChallengeResponse: Codable{
+    var data: [Challenge]
+}
 
-    
+struct Challenge: Codable {
+    var id: int
+    var text: String
+    var imgURL: String
+    var timeToFinish: String
 }

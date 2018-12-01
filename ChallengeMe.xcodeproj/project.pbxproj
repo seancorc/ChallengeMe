@@ -10,6 +10,7 @@
 		79A95E4832B0DBC55BB5B588 /* Pods_ChallengeMeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF240DC9F6DB5C7428F5480B /* Pods_ChallengeMeUITests.framework */; };
 		7A344E60BF2E4CDCC05034D1 /* Pods_ChallengeMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7090C6961F6D05E178EA95E0 /* Pods_ChallengeMe.framework */; };
 		9506728365EA930C8A85E1D0 /* Pods_ChallengeMeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7153636B798146B0948066A7 /* Pods_ChallengeMeTests.framework */; };
+		D4D9041821B30E6D0075ECE4 /* JasonsNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D9041721B30E6D0075ECE4 /* JasonsNetworkManager.swift */; };
 		D637079021A246FD00D296A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D637078F21A246FD00D296A2 /* AppDelegate.swift */; };
 		D637079821A246FD00D296A2 /* ChallengeMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D637079621A246FD00D296A2 /* ChallengeMe.xcdatamodeld */; };
 		D637079A21A246FE00D296A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D637079921A246FE00D296A2 /* Assets.xcassets */; };
@@ -58,6 +59,7 @@
 		7153636B798146B0948066A7 /* Pods_ChallengeMeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChallengeMeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90D51BBBFCAE70EE7759CED4 /* Pods-ChallengeMeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChallengeMeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChallengeMeUITests/Pods-ChallengeMeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CF240DC9F6DB5C7428F5480B /* Pods_ChallengeMeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChallengeMeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4D9041721B30E6D0075ECE4 /* JasonsNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JasonsNetworkManager.swift; sourceTree = "<group>"; };
 		D637078C21A246FD00D296A2 /* ChallengeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChallengeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D637078F21A246FD00D296A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D637079721A246FD00D296A2 /* ChallengeMe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ChallengeMe.xcdatamodel; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				F62C1EBC21A4ADF70084892D /* ChallengeAPI.swift */,
+				D4D9041721B30E6D0075ECE4 /* JasonsNetworkManager.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -371,15 +374,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-ChallengeMe-checkManifestLockResult.txt",
 			);
@@ -393,15 +392,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-ChallengeMeTests-checkManifestLockResult.txt",
 			);
@@ -415,15 +410,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-ChallengeMeUITests-checkManifestLockResult.txt",
 			);
@@ -437,15 +428,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ChallengeMe/Pods-ChallengeMe-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 			);
@@ -471,6 +458,7 @@
 				F62C1EBD21A4ADF70084892D /* ChallengeAPI.swift in Sources */,
 				F65403DC21A5CE6C008BA22D /* ChallengeCollectionViewCell.swift in Sources */,
 				D6BB7B7F21B0440F007D6253 /* MainTabBarController.swift in Sources */,
+				D4D9041821B30E6D0075ECE4 /* JasonsNetworkManager.swift in Sources */,
 				D6E774E221A384BF00E9BDF2 /* Person.swift in Sources */,
 				F65403E121A5D37C008BA22D /* CongratsViewController.swift in Sources */,
 				D637079021A246FD00D296A2 /* AppDelegate.swift in Sources */,
@@ -647,6 +635,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ChallengeMe;
 				INFOPLIST_FILE = ChallengeMe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -666,6 +655,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ChallengeMe;
 				INFOPLIST_FILE = ChallengeMe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
