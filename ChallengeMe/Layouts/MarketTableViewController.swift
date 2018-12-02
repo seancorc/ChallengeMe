@@ -9,11 +9,18 @@
 import UIKit
 
 class MarketTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+ 
+    
+    var challenges: [Challenge]!
+    var gifs: [String]!
     var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getChallengesInfo()
         
+        self.challenges = []
+        self.gifs = []
         
         tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -40,19 +47,39 @@ class MarketTableViewController: UIViewController, UITableViewDataSource, UITabl
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return self.challenges.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as! MarketPlaceTableViewCell
-        cell.awakeFromNib()
-        cell.updateConstraints()
-        return cell
-    }
+    
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("in here")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as! MarketPlaceTableViewCell
+        cell.challenge = self.challenges[indexPath.row]
+        cell.gifURL = self.gifs[indexPath.row]
+        cell.awakeFromNib()
+        return cell
+    }
+    
+    func getChallengesInfo() {
+        SeanNetworkManager.getChallenges { (array) in
+            self.challenges = array
+            self.tableView.reloadData()
+        
+        for challenge in self.challenges {
+            self.gifs.append(challenge.imgURL)
+        }
+        
+            
+        
+    }
+    
+    
+    }
     
 }

@@ -11,18 +11,23 @@ import UIKit
 
 
 
-    struct userResponse: Codable {
-        
-    }
+struct usersResponse: Codable {
+    var data: [User]
+}
 
-    struct userDataResponse: Codable {
-        var count_completed_challenges: Int
-        var id: Int
-        var last_completed_challenge: Int
-        var password: String
-        var streak: Int
-        var username: String
-    }
+struct singleUserResponse: Codable {
+    var data: User
+}
+
+
+struct User: Codable {
+    var count_completed_challenges: Int
+    var id: Int
+    var last_completed_challenge: Int
+    var pic: String
+    var streak: Int
+    var username: String
+}
 
 
 

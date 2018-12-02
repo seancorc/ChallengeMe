@@ -9,7 +9,7 @@
 import UIKit
 
 class PersonViewController: UIViewController {
-    var person: Person!
+    var person: User!
     var profilePictureView: UIImageView!
     var nameLabel: UILabel!
     var challengesCompletedLabel: UILabel!
@@ -23,12 +23,17 @@ class PersonViewController: UIViewController {
     var orangeRect: UIImageView!
     
     
+  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        getuserInfo()
+        print(self.person)
+        
         
         view.backgroundColor = .white
         
-        person = Person(firstName: "first", lastName: "last", profilePicture: nil, challengesCompleted: 13, streak: 5)
+        
         
         Vline = UIImageView(image: UIImage(named: "Vline"))
         Vline.translatesAutoresizingMaskIntoConstraints = false
@@ -52,7 +57,6 @@ class PersonViewController: UIViewController {
         
         nameLabel = UILabel()
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.text = "First Last"
         nameLabel.textColor = .black
         nameLabel.textAlignment = .center
         nameLabel.font = UIFont.systemFont(ofSize: 28, weight: .bold)
@@ -66,7 +70,7 @@ class PersonViewController: UIViewController {
         challengesCompletedLabel.textAlignment = .center
         challengesCompletedLabel.font = UIFont.systemFont(ofSize: 12, weight: .bold)
         self.view.addSubview(challengesCompletedLabel)
-
+        
         streakLabel = UILabel()
         streakLabel.translatesAutoresizingMaskIntoConstraints = false
         streakLabel.text = "Streak"
@@ -78,7 +82,6 @@ class PersonViewController: UIViewController {
         
         streakNumberLabel = UILabel()
         streakNumberLabel.translatesAutoresizingMaskIntoConstraints = false
-        streakNumberLabel.text = "\(person.streak)"
         streakNumberLabel.sizeToFit()
         streakNumberLabel.textColor = .black
         streakNumberLabel.textAlignment = .center
@@ -89,7 +92,6 @@ class PersonViewController: UIViewController {
         numberOfChallengesLabel = UILabel()
         numberOfChallengesLabel.translatesAutoresizingMaskIntoConstraints = false
         numberOfChallengesLabel.sizeToFit()
-        numberOfChallengesLabel.text = "\(person.challengesCompleted)"
         numberOfChallengesLabel.textColor = .black
         numberOfChallengesLabel.textAlignment = .center
         numberOfChallengesLabel.font = UIFont.systemFont(ofSize: 28, weight: .regular)
@@ -98,13 +100,8 @@ class PersonViewController: UIViewController {
         
         
         
-        if let profilePicture = person.profilePicture {
-            profilePictureView = UIImageView(image: profilePicture)
-        }
-        else {
-            profilePictureView = UIImageView(image: UIImage(named: "Default Profile Picture"))
-        }
-        
+
+        profilePictureView = UIImageView()
         profilePictureView.translatesAutoresizingMaskIntoConstraints = false
         profilePictureView.layer.masksToBounds = true
         profilePictureView.layer.cornerRadius = 75
@@ -121,7 +118,7 @@ class PersonViewController: UIViewController {
             orangeRect.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             orangeRect.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             orangeRect.topAnchor.constraint(equalTo: view.topAnchor),
-        orangeRect.bottomAnchor.constraint(equalTo: profilePictureView.centerYAnchor)
+            orangeRect.bottomAnchor.constraint(equalTo: profilePictureView.centerYAnchor)
             
             ])
         
@@ -190,5 +187,17 @@ class PersonViewController: UIViewController {
         
     }
     
+    func getuserInfo() {
+        SeanNetworkManager.getAUser(user_id: 1, completion: { (user,image)  in
+            self.person = user
+            self.streakNumberLabel.text = "\(self.person.streak)"
+            self.numberOfChallengesLabel.text = "\(self.person.count_completed_challenges)"
+            self.nameLabel.text = "\(self.person.username)"
+            self.profilePictureView.image = image
+            
+
+        })
+    }
+
 
 }

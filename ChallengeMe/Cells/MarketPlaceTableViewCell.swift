@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import Alamofire
 
 class MarketPlaceTableViewCell: UITableViewCell {
+    var gifURL: String!
     var challenge: Challenge!
     var nameLabel: UILabel!
     var timeAllotedLabel: UILabel!
@@ -19,15 +21,16 @@ class MarketPlaceTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        challenge = Challenge(description: "Start a conversation with a stranger", time: 5)
-        
-        challengeImage = UIImageView(image: UIImage(named: "Default Profile Picture"))
+        challengeImage = UIImageView()
         challengeImage.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(challengeImage)
+        
+     
+        
+        
         
         nameLabel = UILabel()
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.text = "\(challenge.description)"
+        nameLabel.text = "\(challenge.text)"
         nameLabel.textColor = .black
         nameLabel.sizeToFit()
         nameLabel.textAlignment = .left
@@ -36,7 +39,7 @@ class MarketPlaceTableViewCell: UITableViewCell {
         
         timeAllotedLabel = UILabel()
         timeAllotedLabel.translatesAutoresizingMaskIntoConstraints = false
-        timeAllotedLabel.text = "Time Alloted: \(challenge.time)"
+        timeAllotedLabel.text = "Time Alloted: \(challenge.timeToFinish)"
         timeAllotedLabel.textColor = .black
         timeAllotedLabel.sizeToFit()
         timeAllotedLabel.textAlignment = .left
@@ -66,7 +69,6 @@ class MarketPlaceTableViewCell: UITableViewCell {
             timeAllotedLabel.leadingAnchor.constraint(equalTo: challengeImage.trailingAnchor, constant: 8)
             ])
         
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -74,5 +76,7 @@ class MarketPlaceTableViewCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
+    
+    
 
 }

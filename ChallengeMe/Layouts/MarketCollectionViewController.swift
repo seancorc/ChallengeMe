@@ -35,7 +35,7 @@ class MarketCollectionViewController: UIViewController, UICollectionViewDelegate
         navigationController!.navigationItem.title = "My Challenges"
         edgesForExtendedLayout = [] // gets rid of views going under navigation controller
         
-        Challenges = ChallengeAPI.getChallenges()
+        //Challenges = ChallengeAPI.getChallenges()
         activeChallenges = Challenges
         //filters = RestAPI.getFilters()
         

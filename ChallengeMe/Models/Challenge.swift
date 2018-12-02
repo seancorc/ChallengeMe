@@ -8,19 +8,15 @@
 
 import UIKit
 
-class Challenge {
-    var description: String
-    //var gif: UIImage
-    var time: Int
-    
-    init(description: String,
-         //gif: UIImage,
-         time: Int) {
-        
-        self.description = description
-        //self.gif = gif
-        self.time = time
-    }
 
+struct challengeResponse: Codable {
+    var data: [Challenge]
+}
+
+struct Challenge: Codable {
+    var id: Int
+    var imgURL: String
+    var text: String
+    var timeToFinish: String
     
 }
