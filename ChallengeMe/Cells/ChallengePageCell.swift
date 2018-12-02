@@ -79,6 +79,7 @@ class ChallengePageCell: UICollectionViewCell {
         
         completedButton = UIButton()
         completedButton.setTitle("Challenge Completed", for: .normal)
+        completedButton.isHidden = true
         completedButton.setTitleColor(.white, for: .normal)
         completedButton.titleLabel?.font = UIFont(name: "KohinoorTelugu-Regular", size: 28)
         completedButton.backgroundColor = UIColor.init(red: 54/255, green: 63/255, blue: 69/255, alpha: 0.4)
@@ -176,10 +177,11 @@ class ChallengePageCell: UICollectionViewCell {
     // TODO: Change seconds to the time from the individual challenge
     
     @objc func acceptButtonTapped() {
+        runTimer()
         acceptButton.isHidden = true
         cancelButton.isHidden = false
+        completedButton.isHidden = false
         acceptedDelegate?.acceptButtonWasTapped()
-        runTimer()
         
     }
     
@@ -187,6 +189,7 @@ class ChallengePageCell: UICollectionViewCell {
         secondsCopy = seconds
         cancelButton.isHidden = true
         acceptButton.isHidden = false
+        completedButton.isHidden = true
         timer.invalidate()
         timerLabel.text = "   Timer:           \(seconds)"
         isTimerRunning = false
