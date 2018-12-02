@@ -44,6 +44,7 @@ class ChallengeViewController: UICollectionViewController, UICollectionViewDeleg
         }
         cell.acceptedDelegate = self
         cell.canceledDelegate = self
+        cell.completedDelegate = self
         return cell
     }
     
@@ -52,7 +53,7 @@ class ChallengeViewController: UICollectionViewController, UICollectionViewDeleg
     }
     
     func getChallenges() {
-        SeanNetworkManager.getChallenges { challengesArray in
+        NetworkManager.getChallenges { challengesArray in
             self.challenges = challengesArray
             DispatchQueue.main.async {
                 self.collectionView?.reloadData()
@@ -71,6 +72,21 @@ extension ChallengeViewController: ButtonDelegate {
 
     func acceptButtonWasTapped() {
         collectionView?.isScrollEnabled = false
+    }
+    
+    func completedButtonWasTapped() {
+        
+        let completedViewController = CompletedViewController()
+        
+        let modalNavigationController = UINavigationController(rootViewController: completedViewController)
+        let dismissButton = UIBarButtonItem(title: "Dismiss", style: .plain,
+                                            target: self, action: #selector(dismissViewController))
+        completedViewController.navigationItem.leftBarButtonItem = dismissButton
+        navigationController?.present(modalNavigationController, animated: true)
+    }
+    
+    @objc func dismissViewController() {
+        dismiss(animated: true)
     }
     
 
