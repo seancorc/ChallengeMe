@@ -188,7 +188,7 @@ class PersonViewController: UIViewController {
     }
     
     func getuserInfo() {
-        SeanNetworkManager.getAUser(user_id: 1, completion: { (user,image)  in
+        NetworkManager.getAUser(user_id: 1, completion: { (user,image)  in
             DispatchQueue.main.async {
                 
             self.person = user

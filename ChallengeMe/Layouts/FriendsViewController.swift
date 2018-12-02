@@ -10,6 +10,7 @@ import UIKit
 
 class FriendsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var tableView: UITableView!
+   // var friends = Variables.friends
     
     override func viewDidLoad() {
         super.viewDidLoad()

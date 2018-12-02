@@ -17,6 +17,7 @@
 		D637079D21A246FE00D296A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D637079B21A246FE00D296A2 /* LaunchScreen.storyboard */; };
 		D63707A821A246FF00D296A2 /* ChallengeMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63707A721A246FF00D296A2 /* ChallengeMeTests.swift */; };
 		D63707B321A246FF00D296A2 /* ChallengeMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63707B221A246FF00D296A2 /* ChallengeMeUITests.swift */; };
+		D657471E21B47709000A299F /* Variables.swift in Sources */ = {isa = PBXBuildFile; fileRef = D657471D21B47709000A299F /* Variables.swift */; };
 		D6BB7B7F21B0440F007D6253 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BB7B7E21B0440F007D6253 /* MainTabBarController.swift */; };
 		D6BB7B8121B08394007D6253 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BB7B8021B08394007D6253 /* FriendsViewController.swift */; };
 		D6BB7B8321B0A8E0007D6253 /* MarketTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BB7B8221B0A8E0007D6253 /* MarketTableViewController.swift */; };
@@ -30,7 +31,6 @@
 		F62C1EB821A4AA490084892D /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62C1EB721A4AA490084892D /* Challenge.swift */; };
 		F62C1EBD21A4ADF70084892D /* ChallengeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62C1EBC21A4ADF70084892D /* ChallengeAPI.swift */; };
 		F65403DC21A5CE6C008BA22D /* ChallengeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65403DB21A5CE6C008BA22D /* ChallengeCollectionViewCell.swift */; };
-		F65403DF21A5D205008BA22D /* MarketCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65403DE21A5D205008BA22D /* MarketCollectionViewController.swift */; };
 		F65403E121A5D37C008BA22D /* CongratsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65403E021A5D37C008BA22D /* CongratsViewController.swift */; };
 		F675AD2321ADA07F000888DD /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F675AD2221ADA07F000888DD /* ChallengeViewController.swift */; };
 /* End PBXBuildFile section */
@@ -73,6 +73,7 @@
 		D63707AE21A246FF00D296A2 /* ChallengeMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChallengeMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D63707B221A246FF00D296A2 /* ChallengeMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeMeUITests.swift; sourceTree = "<group>"; };
 		D63707B421A246FF00D296A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D657471D21B47709000A299F /* Variables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Variables.swift; sourceTree = "<group>"; };
 		D6BB7B7E21B0440F007D6253 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		D6BB7B8021B08394007D6253 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		D6BB7B8221B0A8E0007D6253 /* MarketTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTableViewController.swift; sourceTree = "<group>"; };
@@ -88,7 +89,6 @@
 		F62C1EB721A4AA490084892D /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		F62C1EBC21A4ADF70084892D /* ChallengeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeAPI.swift; sourceTree = "<group>"; };
 		F65403DB21A5CE6C008BA22D /* ChallengeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCollectionViewCell.swift; sourceTree = "<group>"; };
-		F65403DE21A5D205008BA22D /* MarketCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketCollectionViewController.swift; sourceTree = "<group>"; };
 		F65403E021A5D37C008BA22D /* CongratsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsViewController.swift; sourceTree = "<group>"; };
 		F675AD2221ADA07F000888DD /* ChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -203,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				D6E774E121A384BF00E9BDF2 /* User.swift */,
+				D657471D21B47709000A299F /* Variables.swift */,
 				F62C1EB721A4AA490084892D /* Challenge.swift */,
 			);
 			path = Models;
@@ -213,7 +214,6 @@
 			children = (
 				D6DD296B21B31816008987F0 /* LogInViewController.swift */,
 				D6E774E321A385D000E9BDF2 /* PersonViewController.swift */,
-				F65403DE21A5D205008BA22D /* MarketCollectionViewController.swift */,
 				D6BB7B8221B0A8E0007D6253 /* MarketTableViewController.swift */,
 				F675AD2221ADA07F000888DD /* ChallengeViewController.swift */,
 				D6BB7B8021B08394007D6253 /* FriendsViewController.swift */,
@@ -487,13 +487,13 @@
 				F62C1EBD21A4ADF70084892D /* ChallengeAPI.swift in Sources */,
 				F65403DC21A5CE6C008BA22D /* ChallengeCollectionViewCell.swift in Sources */,
 				D6BB7B7F21B0440F007D6253 /* MainTabBarController.swift in Sources */,
+				D657471E21B47709000A299F /* Variables.swift in Sources */,
 				D6DD296821B30CE0008987F0 /* NetworkManager.swift in Sources */,
 				D6E774E221A384BF00E9BDF2 /* User.swift in Sources */,
 				D6E774E221A384BF00E9BDF2 /* User.swift in Sources */,
 				F65403E121A5D37C008BA22D /* CongratsViewController.swift in Sources */,
 				D637079021A246FD00D296A2 /* AppDelegate.swift in Sources */,
 				D637079821A246FD00D296A2 /* ChallengeMe.xcdatamodeld in Sources */,
-				F65403DF21A5D205008BA22D /* MarketCollectionViewController.swift in Sources */,
 				D6BB7B8721B0B263007D6253 /* FriendTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

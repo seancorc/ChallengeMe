@@ -47,7 +47,7 @@ class MarketTableViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func getChallenges() {
-        ChallengeNetworkManager.getChallenges { challengesArray in self.challenges = challengesArray
+        NetworkManager.getChallenges { challengesArray in self.challenges = challengesArray
             DispatchQueue.main.async {
                 self.tableView?.reloadData()
             }
@@ -79,7 +79,7 @@ class MarketTableViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func getChallengesInfo() {
-        SeanNetworkManager.getChallenges { (array) in
+        NetworkManager.getChallenges { (array) in
             self.challenges = array
             self.tableView.reloadData()
         
