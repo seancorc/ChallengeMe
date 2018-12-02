@@ -11,6 +11,10 @@ class ChallengeViewController: UICollectionViewController, UICollectionViewDeleg
     
     var challenges: [Challenge]?
     
+    var indexPathInt: Int = 42
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getChallenges()
@@ -45,6 +49,7 @@ class ChallengeViewController: UICollectionViewController, UICollectionViewDeleg
         cell.acceptedDelegate = self
         cell.canceledDelegate = self
         cell.completedDelegate = self
+        indexPathInt = indexPath.row
         return cell
     }
     
@@ -65,6 +70,7 @@ class ChallengeViewController: UICollectionViewController, UICollectionViewDeleg
 }
 
 extension ChallengeViewController: ButtonDelegate {
+    
     func cancelButtonWasTapped() {
         collectionView?.isScrollEnabled = true
     }
@@ -76,7 +82,12 @@ extension ChallengeViewController: ButtonDelegate {
     
     func completedButtonWasTapped() {
         
+        let challenge = self.challenges?[indexPathInt]
+        let description = challenge?.text
+        let time = challenge?.timeToFinish
         let completedViewController = CompletedViewController()
+        completedViewController.challenge = description
+        completedViewController.time = time
         
         let modalNavigationController = UINavigationController(rootViewController: completedViewController)
         let dismissButton = UIBarButtonItem(title: "Dismiss", style: .plain,

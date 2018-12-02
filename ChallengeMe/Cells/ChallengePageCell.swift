@@ -30,6 +30,8 @@ class ChallengePageCell: UICollectionViewCell {
     weak var completedDelegate: ButtonDelegate?
     var challengeLabel: UILabel!
     var challengeImageView: UIImageView!
+    var recordedTime: String? = "5 Years"
+    var indexPath: Int? = 42
     
     
     override init(frame: CGRect) {
@@ -207,6 +209,7 @@ class ChallengePageCell: UICollectionViewCell {
     @objc func updateTimer() {
         secondsCopy -= 1
         timerLabel.text = "   Timer:           \(secondsCopy / 3600): \((secondsCopy % 3600)/60) : \((secondsCopy % 3600)%60)"
+        recordedTime =  "\(secondsCopy / 3600): \((secondsCopy % 3600)/60) : \((secondsCopy % 3600)%60)"
         if ( secondsCopy == 0 ) {
             timer.invalidate()
             timerLabel.text = "   Timer:           \(secondsCopy / 3600): \((secondsCopy % 3600)/60) : \((secondsCopy % 3600)%60)"

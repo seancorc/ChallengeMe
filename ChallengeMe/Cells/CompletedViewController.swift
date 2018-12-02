@@ -12,6 +12,8 @@ class CompletedViewController: UIViewController {
     
     var niceLabel: UILabel!
     var congratsLabel: UILabel!
+    var challenge: String = "Learning the Tango"
+    var time: String = "5 Years"
     
     override func viewDidLoad() {
         
@@ -22,7 +24,8 @@ class CompletedViewController: UIViewController {
         congratsLabel.translatesAutoresizingMaskIntoConstraints = false
         congratsLabel.textColor = UIColor.white
         congratsLabel.font = UIFont(name: "KohinoorTelugu-Regular", size: 24)
-        congratsLabel.text = "CHALLENGE COMPLETED \n Write a Letter to Your Future Self \n\nTIME SPENT \n Two Minutes \n\n\n\n You have now completed a total # of challenges \n\n ChallengeMe again!"
+        congratsLabel.text = "CHALLENGE COMPLETED \n \(challenge) \n\nTIME SPENT \n \(time) \n\n\n\n Bodacious levels increased by 42% \n\n ChallengeMe again!"
+        congratsLabel.preferredMaxLayoutWidth = view.frame.width * 0.9
         view.addSubview(congratsLabel)
         
         niceLabel = UILabel()
@@ -31,6 +34,8 @@ class CompletedViewController: UIViewController {
         niceLabel.font = UIFont(name: "KohinoorTelugu-Regular", size: 34)
         niceLabel.text = "NICE!"
         view.addSubview(niceLabel)
+        
+        setupConstraints()
         
     }
     
