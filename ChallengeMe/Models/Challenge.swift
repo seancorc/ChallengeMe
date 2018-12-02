@@ -6,7 +6,7 @@
 //  Copyright © 2018 ChallengeMe. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 
 struct challengeResponse: Codable {
@@ -18,5 +18,6 @@ struct Challenge: Codable {
     var imgURL: String
     var text: String
     var timeToFinish: String
-    
 }
+
+

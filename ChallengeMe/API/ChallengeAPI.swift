@@ -11,6 +11,7 @@
 //class ChallengeAPI: NSObject {
 //
 //    //Note: implement the gifs later
+
 //    static func getChallenges() -> [Challenge] {
 //        let challenges = [
 //        Challenge(description: "Start a conversation with a stranger", time: 5),
@@ -39,3 +40,4 @@
 //    }
 //
 //}
+

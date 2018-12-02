@@ -13,8 +13,9 @@ class MarketTableViewController: UIViewController, UITableViewDataSource, UITabl
     
     var challenges: [Challenge]!
     var gifs: [String]!
+
     var tableView: UITableView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         getChallengesInfo()
@@ -45,6 +46,15 @@ class MarketTableViewController: UIViewController, UITableViewDataSource, UITabl
             ])
     }
     
+    func getChallenges() {
+        ChallengeNetworkManager.getChallenges { challengesArray in self.challenges = challengesArray
+            DispatchQueue.main.async {
+                self.tableView?.reloadData()
+            }
+            
+        }
+    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.challenges.count
@@ -62,6 +72,7 @@ class MarketTableViewController: UIViewController, UITableViewDataSource, UITabl
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as! MarketPlaceTableViewCell
         cell.challenge = self.challenges[indexPath.row]
         cell.gifURL = self.gifs[indexPath.row]
+
         cell.awakeFromNib()
         return cell
     }

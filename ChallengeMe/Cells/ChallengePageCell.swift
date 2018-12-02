@@ -26,6 +26,7 @@ class ChallengePageCell: UICollectionViewCell {
     weak var acceptedDelegate: ButtonDelegate?
     weak var canceledDelegate: ButtonDelegate?
     var challengeLabel: UILabel!
+    var challengeImageView: UIImageView!
     
     
     override init(frame: CGRect) {
@@ -76,10 +77,13 @@ class ChallengePageCell: UICollectionViewCell {
         
         challengeLabel = UILabel()
         challengeLabel.translatesAutoresizingMaskIntoConstraints = false
-        challengeLabel.text = "Insert Challenge Here"
+        //challengeLabel.text = "Insert Challenge Here"
         challengeLabel.textColor = UIColor.white
         challengeLabel.font = UIFont(name: "KohinoorTelugu-Regular", size: 34)
         addSubview(challengeLabel)
+        
+        challengeImageView = UIImageView()
+        addSubview(challengeImageView)
         
 
 
@@ -116,6 +120,15 @@ class ChallengePageCell: UICollectionViewCell {
             challengeLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             challengeLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -contentView.frame.height / 4)
             ])
+        NSLayoutConstraint.activate([
+            challengeImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            challengeImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: contentView.frame.height / 4)
+            ])
+    }
+    
+    func configure(for challenge: Challenge) {
+        challengeLabel.text = challenge.text
+        //challengeImageView.image = UIImage(cgImage: Challenge.imgURL)
     }
     
     

@@ -7,17 +7,32 @@ import UIKit
 class ChallengeViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
 
+    var challengeImageView: UIImageView!
+    
+    var challenges = [Challenge]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
         
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        
+        collectionView?.translatesAutoresizingMaskIntoConstraints = false
         collectionView?.backgroundColor = .white
         collectionView?.register(ChallengePageCell.self, forCellWithReuseIdentifier: "cellId")
         
         collectionView?.isPagingEnabled = true
+        
+        
+        getChallenges()
+    }
+    
+    func getChallenges() {
+        ChallengeNetworkManager.getChallenges { challengesArray in self.challenges = challengesArray
+            DispatchQueue.main.async {
+                self.collectionView?.reloadData()
+            }
+            
+        }
     }
     
     
@@ -31,6 +46,7 @@ class ChallengeViewController: UICollectionViewController, UICollectionViewDeleg
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! ChallengePageCell
+        cell.configure(for: challenges[indexPath.row])
         cell.acceptedDelegate = self
         cell.canceledDelegate = self
         return cell
@@ -44,12 +60,12 @@ class ChallengeViewController: UICollectionViewController, UICollectionViewDeleg
 
 extension ChallengeViewController: ButtonDelegate {
     func cancelButtonWasTapped() {
-        collectionView.isScrollEnabled = true
+        collectionView?.isScrollEnabled = true
     }
     
 
     func acceptButtonWasTapped() {
-        collectionView.isScrollEnabled = false
+        collectionView?.isScrollEnabled = false
     }
 
 }

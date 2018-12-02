@@ -8,7 +8,6 @@
 
 import Foundation
 import Alamofire
-import FLAnimatedImage
 
 private let userEndpoint = "http://localhost:5000/api/users/"
 private let challengeEndpoint = "http://localhost:5000/api/challenges/"
