@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		7A0D6124B63163E80B80A5FF /* Pods_ChallengeMeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2AD2154E5432AFA82A2658 /* Pods_ChallengeMeTests.framework */; };
 		B684CFE3A43CAF3671FEB700 /* Pods_ChallengeMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881755FBA800B38EC12CFB95 /* Pods_ChallengeMe.framework */; };
-		D4D9041821B30E6D0075ECE4 /* ChallengeNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D9041721B30E6D0075ECE4 /* ChallengeNetworkManager.swift */; };
 		D550401C179D6A05F9269A47 /* Pods_ChallengeMeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F352872D0F6F868A4D53A06 /* Pods_ChallengeMeUITests.framework */; };
 		D637079021A246FD00D296A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D637078F21A246FD00D296A2 /* AppDelegate.swift */; };
 		D637079821A246FD00D296A2 /* ChallengeMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D637079621A246FD00D296A2 /* ChallengeMe.xcdatamodeld */; };
@@ -22,7 +21,7 @@
 		D6BB7B8321B0A8E0007D6253 /* MarketTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BB7B8221B0A8E0007D6253 /* MarketTableViewController.swift */; };
 		D6BB7B8521B0AA17007D6253 /* MarketPlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BB7B8421B0AA17007D6253 /* MarketPlaceTableViewCell.swift */; };
 		D6BB7B8721B0B263007D6253 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BB7B8621B0B263007D6253 /* FriendTableViewCell.swift */; };
-		D6DD296821B30CE0008987F0 /* SeanNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DD296721B30CE0008987F0 /* SeanNetworkManager.swift */; };
+		D6DD296821B30CE0008987F0 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DD296721B30CE0008987F0 /* NetworkManager.swift */; };
 		D6DD296C21B31816008987F0 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DD296B21B31816008987F0 /* LogInViewController.swift */; };
 		D6E774E221A384BF00E9BDF2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E774E121A384BF00E9BDF2 /* User.swift */; };
 		D6E774E421A385D000E9BDF2 /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E774E321A385D000E9BDF2 /* PersonViewController.swift */; };
@@ -60,7 +59,6 @@
 		881755FBA800B38EC12CFB95 /* Pods_ChallengeMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChallengeMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C7C283E58C0C5E0D9D7332F /* Pods-ChallengeMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChallengeMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChallengeMe/Pods-ChallengeMe.release.xcconfig"; sourceTree = "<group>"; };
 		D475CDDEA43FF7294DABFBF9 /* Pods-ChallengeMeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChallengeMeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChallengeMeUITests/Pods-ChallengeMeUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		D4D9041721B30E6D0075ECE4 /* ChallengeNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeNetworkManager.swift; sourceTree = "<group>"; };
 		D637078C21A246FD00D296A2 /* ChallengeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChallengeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D637078F21A246FD00D296A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D637079721A246FD00D296A2 /* ChallengeMe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ChallengeMe.xcdatamodel; sourceTree = "<group>"; };
@@ -78,7 +76,7 @@
 		D6BB7B8221B0A8E0007D6253 /* MarketTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTableViewController.swift; sourceTree = "<group>"; };
 		D6BB7B8421B0AA17007D6253 /* MarketPlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MarketPlaceTableViewCell.swift; path = ChallengeMe/Cells/MarketPlaceTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		D6BB7B8621B0B263007D6253 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
-		D6DD296721B30CE0008987F0 /* SeanNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeanNetworkManager.swift; sourceTree = "<group>"; };
+		D6DD296721B30CE0008987F0 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		D6DD296B21B31816008987F0 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LogInViewController.swift; path = /Users/seancorcoran/dev/ios/ChallengeMe/ChallengeMe/Layouts/LogInViewController.swift; sourceTree = "<absolute>"; };
 		D6E774E121A384BF00E9BDF2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D6E774E321A385D000E9BDF2 /* PersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
@@ -227,9 +225,8 @@
 		F62C1EBE21A4AE260084892D /* API */ = {
 			isa = PBXGroup;
 			children = (
-				D6DD296721B30CE0008987F0 /* SeanNetworkManager.swift */,
+				D6DD296721B30CE0008987F0 /* NetworkManager.swift */,
 				F62C1EBC21A4ADF70084892D /* ChallengeAPI.swift */,
-				D4D9041721B30E6D0075ECE4 /* ChallengeNetworkManager.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -494,9 +491,8 @@
 				F62C1EBD21A4ADF70084892D /* ChallengeAPI.swift in Sources */,
 				F65403DC21A5CE6C008BA22D /* ChallengeCollectionViewCell.swift in Sources */,
 				D6BB7B7F21B0440F007D6253 /* MainTabBarController.swift in Sources */,
-				D6DD296821B30CE0008987F0 /* SeanNetworkManager.swift in Sources */,
+				D6DD296821B30CE0008987F0 /* NetworkManager.swift in Sources */,
 				D6E774E221A384BF00E9BDF2 /* User.swift in Sources */,
-				D4D9041821B30E6D0075ECE4 /* ChallengeNetworkManager.swift in Sources */,
 				D6E774E221A384BF00E9BDF2 /* User.swift in Sources */,
 				F65403E121A5D37C008BA22D /* CongratsViewController.swift in Sources */,
 				D637079021A246FD00D296A2 /* AppDelegate.swift in Sources */,

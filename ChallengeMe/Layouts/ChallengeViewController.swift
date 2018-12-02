@@ -9,11 +9,12 @@ class ChallengeViewController: UICollectionViewController, UICollectionViewDeleg
 
     var challengeImageView: UIImageView!
     
-    var challenges = [Challenge]()
+    var challenges: [Challenge]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        getChallenges()
+
         
         
         collectionView?.translatesAutoresizingMaskIntoConstraints = false
@@ -23,17 +24,9 @@ class ChallengeViewController: UICollectionViewController, UICollectionViewDeleg
         collectionView?.isPagingEnabled = true
         
         
-        getChallenges()
     }
     
-    func getChallenges() {
-        ChallengeNetworkManager.getChallenges { challengesArray in self.challenges = challengesArray
-            DispatchQueue.main.async {
-                self.collectionView?.reloadData()
-            }
-            
-        }
-    }
+    
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -46,7 +39,9 @@ class ChallengeViewController: UICollectionViewController, UICollectionViewDeleg
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! ChallengePageCell
-        cell.configure(for: challenges[indexPath.row])
+        if let challengeArray = self.challenges {
+            cell.configure(for: challengeArray[indexPath.row])
+        }
         cell.acceptedDelegate = self
         cell.canceledDelegate = self
         return cell
@@ -54,6 +49,16 @@ class ChallengeViewController: UICollectionViewController, UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: view.frame.height)
+    }
+    
+    func getChallenges() {
+        SeanNetworkManager.getChallenges { challengesArray in
+            self.challenges = challengesArray
+            DispatchQueue.main.async {
+                self.collectionView?.reloadData()
+            }
+            
+        }
     }
     
 }
@@ -67,5 +72,6 @@ extension ChallengeViewController: ButtonDelegate {
     func acceptButtonWasTapped() {
         collectionView?.isScrollEnabled = false
     }
+    
 
 }

@@ -22,8 +22,9 @@ class MarketPlaceTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         challengeImage = UIImageView()
-
+        challengeImage.image = UIImage(named: "Default Profile Picture")
         challengeImage.translatesAutoresizingMaskIntoConstraints = false
+        self.contentView.addSubview(challengeImage)
         
      
         
@@ -41,7 +42,6 @@ class MarketPlaceTableViewCell: UITableViewCell {
         timeAllotedLabel = UILabel()
         timeAllotedLabel.translatesAutoresizingMaskIntoConstraints = false
         timeAllotedLabel.text = "Time Alloted: \(challenge.timeToFinish)"
-
         timeAllotedLabel.textColor = .black
         timeAllotedLabel.sizeToFit()
         timeAllotedLabel.textAlignment = .left

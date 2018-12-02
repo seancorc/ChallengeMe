@@ -189,12 +189,14 @@ class PersonViewController: UIViewController {
     
     func getuserInfo() {
         SeanNetworkManager.getAUser(user_id: 1, completion: { (user,image)  in
+            DispatchQueue.main.async {
+                
             self.person = user
             self.streakNumberLabel.text = "\(self.person.streak)"
             self.numberOfChallengesLabel.text = "\(self.person.count_completed_challenges)"
             self.nameLabel.text = "\(self.person.username)"
             self.profilePictureView.image = image
-            
+            }
 
         })
     }

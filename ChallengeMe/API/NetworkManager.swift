@@ -14,7 +14,7 @@ private let challengeEndpoint = "http://localhost:5000/api/challenges/"
 
 
 
-class SeanNetworkManager {
+class NetworkManager {
     
     static func getUsers(completion: @escaping ([User]) -> Void) {
         
