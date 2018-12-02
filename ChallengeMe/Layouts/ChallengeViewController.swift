@@ -52,7 +52,7 @@ class ChallengeViewController: UICollectionViewController, UICollectionViewDeleg
     }
     
     func getChallenges() {
-        SeanNetworkManager.getChallenges { challengesArray in
+        NetworkManager.getChallenges { challengesArray in
             self.challenges = challengesArray
             DispatchQueue.main.async {
                 self.collectionView?.reloadData()

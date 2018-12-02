@@ -11,6 +11,7 @@ import Alamofire
 
 private let userEndpoint = "http://localhost:5000/api/users/"
 private let challengeEndpoint = "http://localhost:5000/api/challenges/"
+private let loginEndpoint = "http://localhost:5000/api/users/login/"
 
 
 
@@ -87,6 +88,8 @@ class NetworkManager {
     }
     
     
+    
+    
     //Fix This
     static func getChallenges(completion: @escaping ([Challenge]) -> Void) {
         
@@ -122,6 +125,33 @@ class NetworkManager {
         }
     }
     
+    
+    
+    static func login(username: String, password: String, completion: @escaping (User) -> Void) {
+        let parameters: [String:Any] = [
+            "password": password,
+            "username": username
+            ]
+        Alamofire.request(loginEndpoint, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: [:]).validate().responseData { (response) in
+            switch response.result {
+            case .success(let data):
+                if let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) {
+                    print(json)
+                }
+                let jsonDecoder = JSONDecoder()
+                if let user = try? jsonDecoder.decode(singleUserResponse.self, from: data) {
+                    completion(user.data)
+                    
+                    
+                } else {
+                    print("Invalid Response Data")
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+
 
 
 

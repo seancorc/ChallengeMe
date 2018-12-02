@@ -9,7 +9,6 @@
 import UIKit
 
 class FriendTableViewCell: UITableViewCell {
-    //var person: Person!
     var nameLabel: UILabel!
     var profilePicture: UIImageView!
     
@@ -18,7 +17,7 @@ class FriendTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        //person = Person(firstName: "First", lastName: "Last", profilePicture: UIImage(named: "Default Profile Picture"), challengesCompleted: 7, streak: 12)
+
         
         profilePicture = UIImageView(image: UIImage(named: "Default Profile Picture"))
         profilePicture.translatesAutoresizingMaskIntoConstraints = false
