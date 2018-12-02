@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7A0D6124B63163E80B80A5FF /* Pods_ChallengeMeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2AD2154E5432AFA82A2658 /* Pods_ChallengeMeTests.framework */; };
 		B684CFE3A43CAF3671FEB700 /* Pods_ChallengeMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881755FBA800B38EC12CFB95 /* Pods_ChallengeMe.framework */; };
+		D46718A421B47BC7005083A8 /* CompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46718A321B47BC7005083A8 /* CompletedViewController.swift */; };
 		D550401C179D6A05F9269A47 /* Pods_ChallengeMeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F352872D0F6F868A4D53A06 /* Pods_ChallengeMeUITests.framework */; };
 		D637079021A246FD00D296A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D637078F21A246FD00D296A2 /* AppDelegate.swift */; };
 		D637079821A246FD00D296A2 /* ChallengeMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D637079621A246FD00D296A2 /* ChallengeMe.xcdatamodeld */; };
@@ -58,6 +59,7 @@
 		6F352872D0F6F868A4D53A06 /* Pods_ChallengeMeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChallengeMeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		881755FBA800B38EC12CFB95 /* Pods_ChallengeMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChallengeMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C7C283E58C0C5E0D9D7332F /* Pods-ChallengeMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChallengeMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChallengeMe/Pods-ChallengeMe.release.xcconfig"; sourceTree = "<group>"; };
+		D46718A321B47BC7005083A8 /* CompletedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedViewController.swift; sourceTree = "<group>"; };
 		D475CDDEA43FF7294DABFBF9 /* Pods-ChallengeMeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChallengeMeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChallengeMeUITests/Pods-ChallengeMeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D637078C21A246FD00D296A2 /* ChallengeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChallengeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D637078F21A246FD00D296A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 			children = (
 				F65403DB21A5CE6C008BA22D /* ChallengeCollectionViewCell.swift */,
 				F6196FDD21AB7F58009C9407 /* ChallengePageCell.swift */,
+				D46718A321B47BC7005083A8 /* CompletedViewController.swift */,
 				D6BB7B8421B0AA17007D6253 /* MarketPlaceTableViewCell.swift */,
 				D6BB7B8621B0B263007D6253 /* FriendTableViewCell.swift */,
 			);
@@ -378,15 +381,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ChallengeMe/Pods-ChallengeMe-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 			);
@@ -456,15 +455,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-ChallengeMeUITests-checkManifestLockResult.txt",
 			);
@@ -488,6 +483,7 @@
 				D6BB7B8321B0A8E0007D6253 /* MarketTableViewController.swift in Sources */,
 				D6E774E421A385D000E9BDF2 /* PersonViewController.swift in Sources */,
 				D6BB7B8121B08394007D6253 /* FriendsViewController.swift in Sources */,
+				D46718A421B47BC7005083A8 /* CompletedViewController.swift in Sources */,
 				F62C1EBD21A4ADF70084892D /* ChallengeAPI.swift in Sources */,
 				F65403DC21A5CE6C008BA22D /* ChallengeCollectionViewCell.swift in Sources */,
 				D6BB7B7F21B0440F007D6253 /* MainTabBarController.swift in Sources */,
