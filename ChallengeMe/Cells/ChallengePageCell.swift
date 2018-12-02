@@ -96,6 +96,7 @@ class ChallengePageCell: UICollectionViewCell {
         challengeLabel.translatesAutoresizingMaskIntoConstraints = false
         challengeLabel.textColor = UIColor.white
         challengeLabel.font = UIFont(name: "KohinoorTelugu-Regular", size: 24)
+        challengeLabel.preferredMaxLayoutWidth = contentView.frame.width * 0.9
         addSubview(challengeLabel)
         
         challengeImageView = UIImageView()
@@ -135,7 +136,7 @@ class ChallengePageCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             challengeLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             challengeLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -contentView.frame.height / 4),
-            challengeLabel.widthAnchor.constraint(equalToConstant: contentView.frame.width - 48)
+            //challengeLabel.widthAnchor.constraint(equalToConstant: contentView.frame.width - 48)
             ])
         NSLayoutConstraint.activate([
             challengeImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
@@ -143,8 +144,8 @@ class ChallengePageCell: UICollectionViewCell {
             ])
         NSLayoutConstraint.activate([
             completedButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            completedButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: contentView.frame.width / 4),
-            completedButton.widthAnchor.constraint(equalToConstant: 150)
+            completedButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: contentView.frame.width / 3),
+            completedButton.widthAnchor.constraint(equalToConstant: 400)
             ])
     }
     
@@ -205,10 +206,10 @@ class ChallengePageCell: UICollectionViewCell {
 
     @objc func updateTimer() {
         secondsCopy -= 1
-        timerLabel.text = "   Timer:           \(secondsCopy % 3600) hrs : \((secondsCopy % 3600)/60) min : \((secondsCopy % 3600)%60) sec"
+        timerLabel.text = "   Timer:           \(secondsCopy / 3600): \((secondsCopy % 3600)/60) : \((secondsCopy % 3600)%60)"
         if ( secondsCopy == 0 ) {
             timer.invalidate()
-            timerLabel.text = "   Timer:           \(secondsCopy % 3600) hrs : \((secondsCopy % 3600)/60) min : \((secondsCopy % 3600)%60) sec"
+            timerLabel.text = "   Timer:           \(secondsCopy / 3600): \((secondsCopy % 3600)/60) : \((secondsCopy % 3600)%60)"
             isTimerRunning = false
             canceledDelegate?.cancelButtonWasTapped()
         }
