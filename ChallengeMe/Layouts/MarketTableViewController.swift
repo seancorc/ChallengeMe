@@ -9,7 +9,9 @@
 import UIKit
 
 class MarketTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
     var tableView: UITableView!
+    var challenges = [Challenge]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +40,15 @@ class MarketTableViewController: UIViewController, UITableViewDataSource, UITabl
             ])
     }
     
+    func getChallenges() {
+        ChallengeNetworkManager.getChallenges { challengesArray in self.challenges = challengesArray
+            DispatchQueue.main.async {
+                self.tableView?.reloadData()
+            }
+            
+        }
+    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
@@ -45,6 +56,7 @@ class MarketTableViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as! MarketPlaceTableViewCell
+        //cell.configure(for: challenges[indexPath.row])
         cell.awakeFromNib()
         cell.updateConstraints()
         return cell

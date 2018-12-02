@@ -19,7 +19,7 @@ class MarketPlaceTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        challenge = Challenge(description: "Start a conversation with a stranger", time: 5)
+        //challenge = Challenge(description: "Start a conversation with a stranger", time: 5)
         
         challengeImage = UIImageView(image: UIImage(named: "Default Profile Picture"))
         challengeImage.translatesAutoresizingMaskIntoConstraints = false
@@ -27,7 +27,8 @@ class MarketPlaceTableViewCell: UITableViewCell {
         
         nameLabel = UILabel()
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.text = "\(challenge.description)"
+        //nameLabel.text = "\(challenge.description)"
+        nameLabel.text = "Start a conversation with a stranger"
         nameLabel.textColor = .black
         nameLabel.sizeToFit()
         nameLabel.textAlignment = .left
@@ -36,7 +37,8 @@ class MarketPlaceTableViewCell: UITableViewCell {
         
         timeAllotedLabel = UILabel()
         timeAllotedLabel.translatesAutoresizingMaskIntoConstraints = false
-        timeAllotedLabel.text = "Time Alloted: \(challenge.time)"
+        //timeAllotedLabel.text = "Time Alloted: \(challenge.time)"
+        timeAllotedLabel.text = "Time Allotted: 5"
         timeAllotedLabel.textColor = .black
         timeAllotedLabel.sizeToFit()
         timeAllotedLabel.textAlignment = .left

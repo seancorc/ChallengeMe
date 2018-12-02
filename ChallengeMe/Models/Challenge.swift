@@ -13,7 +13,7 @@ struct ChallengeResponse: Codable{
 }
 
 struct Challenge: Codable {
-    var id: int
+    var id: Int
     var text: String
     var imgURL: String
     var timeToFinish: String

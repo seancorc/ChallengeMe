@@ -35,7 +35,7 @@ class ChallengeCollectionViewCell: UICollectionViewCell {
     }
     
     func setup(withChallenge challenge: Challenge) {
-        nameLabel.text = challenge.description
+        //nameLabel.text = challenge.description
     }
     
     required init?(coder aDecoder: NSCoder) {
