@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import FLAnimatedImage
 
 class LogInViewController: UIViewController {
     var userNameTextField: UITextField!
@@ -15,11 +15,23 @@ class LogInViewController: UIViewController {
     var originalSignInButton: UIButton!
     var challengeMeLabel: UILabel!
     var signUpButton: UIButton!
+    var Hline: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NetworkManager.getChallenge(id: 2) { (challenge, FLAnimatedImage) in
+            print("worked")
+        }
+        
+        
+        Hline = UIImageView(image: UIImage(named: "Hline"))
+        Hline.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(Hline)
+        
         view.backgroundColor = UIColor(red: 255/255, green: 84/255, blue: 42/255, alpha: 1)
+        
+        
         
         challengeMeLabel = UILabel()
         challengeMeLabel.text = "ChallengeMe"
@@ -129,6 +141,12 @@ class LogInViewController: UIViewController {
             signUpButton.heightAnchor.constraint(equalToConstant: 75),
             ])
         
+        NSLayoutConstraint.activate([
+            Hline.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            Hline.topAnchor.constraint(equalTo: challengeMeLabel.bottomAnchor, constant: -8),
+            Hline.widthAnchor.constraint(equalToConstant: 175),
+            Hline.heightAnchor.constraint(equalToConstant: 10)
+            ])
         
     }
     

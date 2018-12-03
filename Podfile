@@ -7,6 +7,7 @@ target 'ChallengeMe' do
 
   # Pods for ChallengeMe
   pod 'Alamofire'
+  pod 'FLAnimatedImage', '~> 1.0'
 
   target 'ChallengeMeTests' do
     inherit! :search_paths

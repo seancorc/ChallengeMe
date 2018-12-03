@@ -15,10 +15,20 @@ class MarketTableViewController: UIViewController, UITableViewDataSource, UITabl
     var gifs: [String]!
 
     var tableView: UITableView!
+    
+    var background: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         getChallengesInfo()
+        
+        
+        self.navigationItem.title = "All Challenges"
+        
+        background = UIImageView(image: UIImage(named: "Orange Rectangle"))
+        background.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(background)
+        
         
         self.challenges = []
         self.gifs = []
@@ -27,8 +37,8 @@ class MarketTableViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.backgroundColor = .clear
         tableView.register(MarketPlaceTableViewCell.self, forCellReuseIdentifier: "cellID")
-        tableView.backgroundColor = .white
         self.view.addSubview(tableView)
         
         setupConstraints()
@@ -44,6 +54,14 @@ class MarketTableViewController: UIViewController, UITableViewDataSource, UITabl
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
             ])
+        
+        NSLayoutConstraint.activate([
+            background.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            background.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            background.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            background.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            ])
+        
     }
     
     func getChallenges() {
@@ -70,6 +88,7 @@ class MarketTableViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as! MarketPlaceTableViewCell
         cell.challenge = self.challenges[indexPath.row]
+        cell.backgroundColor = .clear
         cell.configure()
         cell.updateConstraints()
         cell.gifURL = self.gifs[indexPath.row]

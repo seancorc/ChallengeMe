@@ -29,6 +29,8 @@ class PersonViewController: UIViewController {
         super.viewDidLoad()
         getuserInfo()
         
+        self.navigationItem.title = "My Profile"
+
         
         view.backgroundColor = .white
         

@@ -10,21 +10,34 @@ import UIKit
 
 class CompletedViewController: UIViewController {
     
+    var challenge: Challenge!
     var niceLabel: UILabel!
     var congratsLabel: UILabel!
-    var challenge: String = "Learning the Tango"
     var time: String = "5 Years"
+    var background: UIImageView!
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        view.backgroundColor = .orange
+        
+        background = UIImageView(image: UIImage(named: "Orange Rectangle"))
+        background.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(background)
         
         congratsLabel = UILabel()
         congratsLabel.translatesAutoresizingMaskIntoConstraints = false
         congratsLabel.textColor = UIColor.white
         congratsLabel.font = UIFont(name: "KohinoorTelugu-Regular", size: 24)
-        congratsLabel.text = "CHALLENGE COMPLETED \n \(challenge) \n\nYou Did It In Under \n\(time) \n\n\n\n Bodacious levels increased by 42% \n\n ChallengeMe again!"
+        if challenge.timeToFinish == "five_minutes" {
+            time = "Five Minutes"
+        }
+        if challenge.timeToFinish == "six_hours" {
+            time = "Six Hours"
+        }
+        if challenge.timeToFinish == "one_day" {
+            time = "One Day"
+        }
+        congratsLabel.text = "CHALLENGE COMPLETED \n\(challenge.text) \n\nYou Did It In Under \n\(time) \n\nChallengeMe again!"
         congratsLabel.lineBreakMode = .byWordWrapping
         congratsLabel.numberOfLines = 20
         view.addSubview(congratsLabel)
@@ -35,6 +48,7 @@ class CompletedViewController: UIViewController {
         niceLabel.font = UIFont(name: "KohinoorTelugu-Regular", size: 34)
         niceLabel.text = "NICE!"
         view.addSubview(niceLabel)
+        
         
         setupConstraints()
         
@@ -49,6 +63,13 @@ class CompletedViewController: UIViewController {
         NSLayoutConstraint.activate([
             niceLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             niceLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -view.frame.height / 4)
+            ])
+        
+        NSLayoutConstraint.activate([
+            background.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            background.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            background.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            background.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
             ])
     }
     

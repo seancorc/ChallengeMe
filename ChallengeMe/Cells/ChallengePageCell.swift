@@ -7,14 +7,15 @@
 //
 
 import UIKit
-
+import FLAnimatedImage
 // This is the "Start Challenge" screen
 
 protocol ButtonDelegate: class {
     func acceptButtonWasTapped()
     func cancelButtonWasTapped()
-    func completedButtonWasTapped()
+    func completedButtonWasTapped(tag: Int)
 }
+
 
 class ChallengePageCell: UICollectionViewCell {
     var challenge: Challenge!
@@ -32,14 +33,14 @@ class ChallengePageCell: UICollectionViewCell {
     var challengeLabel: UILabel!
     var challengeImageView: UIImageView!
     var recordedTime: String? = "5 Years"
-    var indexPath: Int? = 42
+    var gifImageView: FLAnimatedImageView!
     
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+       
         
-        backgroundView = UIImageView(image: UIImage(named: "Orange Rectangle"))
         
         acceptButton = UIButton()
         acceptButton.setTitle("Accept", for: .normal)
@@ -181,6 +182,13 @@ class ChallengePageCell: UICollectionViewCell {
 
         }
         
+        gifImageView = FLAnimatedImageView()
+        NetworkManager.getChallengeGif(url: self.challenge.imgURL) { (data) in
+            let gif = FLAnimatedImage.init(animatedGIFData: data)
+            self.gifImageView.animatedImage = gif
+            self.backgroundView = self.gifImageView
+        }
+        
 
     }
     
@@ -208,10 +216,10 @@ class ChallengePageCell: UICollectionViewCell {
         completedButton.isHidden = true
         timer.invalidate()
         if time == 86400 {
-            timerLabel.text = "   Timer:           \(timeCopy / 3600): 0\((timeCopy % 3600)/60) : \((timeCopy % 3600)%60)"
+            timerLabel.text = "   Timer:           \(timeCopy / 3600): 0\((timeCopy % 3600)/60) : \((timeCopy % 3600)%60)0"
         }
         else {
-            timerLabel.text = "   Timer:           0\(timeCopy / 3600): 0\((timeCopy % 3600)/60) : \((timeCopy % 3600)%60)"
+            timerLabel.text = "   Timer:           0\(timeCopy / 3600): 0\((timeCopy % 3600)/60) : \((timeCopy % 3600)%60)0"
             
         }
 
@@ -229,14 +237,15 @@ class ChallengePageCell: UICollectionViewCell {
         acceptButton.isHidden = false
         timer.invalidate()
         if time == 86400 {
-            timerLabel.text = "   Timer:           \(timeCopy / 3600): 0\((timeCopy % 3600)/60) : \((timeCopy % 3600)%60)"
+            timerLabel.text = "   Timer:           \(timeCopy / 3600): 0\((timeCopy % 3600)/60) : \((timeCopy % 3600)%60)0"
         }
         else {
-            timerLabel.text = "   Timer:           0\(timeCopy / 3600): 0\((timeCopy % 3600)/60) : \((timeCopy % 3600)%60)"
+            timerLabel.text = "   Timer:           0\(timeCopy / 3600): 0\((timeCopy % 3600)/60) : \((timeCopy % 3600)%60)0"
             
         }
         isTimerRunning = false
-        completedDelegate?.completedButtonWasTapped()
+        canceledDelegate?.cancelButtonWasTapped()
+        completedDelegate?.completedButtonWasTapped(tag: self.tag)
         
         
     }

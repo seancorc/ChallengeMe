@@ -20,4 +20,10 @@ struct Challenge: Codable {
     var timeToFinish: String
 }
 
+struct singleChallengeResponse: Codable {
+    var data: Challenge
+}
+
+
+
 

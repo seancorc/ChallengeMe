@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import FLAnimatedImage
 
 private let userEndpoint = "http://35.243.148.8/api/users/"
 private let challengeEndpoint = "http://35.243.148.8/api/challenges/"
@@ -15,6 +16,7 @@ private let loginEndpoint = "http://35.243.148.8/api/users/login/"
 private let signUpEndpoint = "http://35.243.148.8/api/users/signup/"
 private let completeChallengeEndpoint = "http://35.243.148.8/api/users/complete_challenge/"
 private let startChallengeEndpoint = "http://35.243.148.8/api/users/start_challenge/"
+
 
 
 
@@ -107,6 +109,36 @@ class NetworkManager {
                 
                 if let challenges = try? jsonDecoder.decode(challengeResponse.self, from: data) {
                     completion(challenges.data)
+                } else {
+                    print("Invalid Response Data")
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    
+    static func getChallenge(id: Int, completion: @escaping (Challenge, FLAnimatedImage) -> Void) {
+        let parameters: [String:Any] = [
+            "id": id,
+            ]
+        Alamofire.request("http://35.243.148.8/api/challenges/\(id)/", method: .get).validate().responseData { (response) in
+            switch response.result {
+            case .success(let data):
+                if let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) {
+                    print(json)
+                }
+                let jsonDecoder = JSONDecoder()
+                if let challenge = try? jsonDecoder.decode(singleChallengeResponse.self, from: data) {
+                    var gif: FLAnimatedImage? = nil
+                    
+                    getChallengeGif(url: challenge.data.imgURL, completion: { (data) in
+                        gif = FLAnimatedImage(animatedGIFData: data)
+                        completion(challenge.data, gif!)
+                    })
+                    
+                    
                 } else {
                     print("Invalid Response Data")
                 }
@@ -227,7 +259,6 @@ class NetworkManager {
                 let jsonDecoder = JSONDecoder()
                 if let challenge = try? jsonDecoder.decode(challengeActivityResponse.self, from: data) {
                     completion(challenge.data)
-                    
                     
                 } else {
                     print("Invalid Response Data")

@@ -11,11 +11,18 @@ import UIKit
 class FriendsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var tableView: UITableView!
     var users: [User]! = []
-
+    var background: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getUsers()
+        
+        self.navigationItem.title = "Users"
+        
+        
+        background = UIImageView(image: UIImage(named: "Orange Rectangle"))
+        background.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(background)
         
         
         tableView = UITableView()
@@ -23,7 +30,7 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(FriendTableViewCell.self, forCellReuseIdentifier: "cellID")
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = .clear
         self.view.addSubview(tableView)
         
         setupConstraints()
@@ -39,6 +46,13 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
             ])
+        
+        NSLayoutConstraint.activate([
+            background.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            background.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            background.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            background.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            ])
     }
     
     
@@ -48,6 +62,7 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as! FriendTableViewCell
+        cell.backgroundColor = .clear
         cell.user = self.users[indexPath.row]
         cell.awakeFromNib()
         cell.updateConstraints()
