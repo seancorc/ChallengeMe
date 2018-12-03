@@ -44,9 +44,9 @@ class ChallengePageCell: UICollectionViewCell {
         
         acceptButton = UIButton()
         acceptButton.setTitle("Accept", for: .normal)
-        acceptButton.setTitleColor(.white, for: .normal)
+        acceptButton.setTitleColor(.orange, for: .normal)
         acceptButton.titleLabel?.font = UIFont(name: "KohinoorTelugu-Regular", size: 28)
-        acceptButton.backgroundColor = UIColor.init(red: 54/255, green: 63/255, blue: 69/255, alpha: 0.4)
+        acceptButton.backgroundColor = UIColor.init(red: 54/255, green: 63/255, blue: 69/255, alpha: 0.8)
         acceptButton.layer.masksToBounds = true
         acceptButton.layer.cornerRadius = 10
         acceptButton.layer.borderColor = UIColor.lightGray.cgColor
@@ -57,9 +57,9 @@ class ChallengePageCell: UICollectionViewCell {
         
         cancelButton = UIButton()
         cancelButton.setTitle("Cancel", for: .normal)
-        cancelButton.setTitleColor(.white, for: .normal)
+        cancelButton.setTitleColor(.orange, for: .normal)
         cancelButton.titleLabel?.font = UIFont(name: "KohinoorTelugu-Regular", size: 28)
-        cancelButton.backgroundColor = UIColor.init(red: 54/255, green: 63/255, blue: 69/255, alpha: 0.4)
+        cancelButton.backgroundColor = UIColor.init(red: 54/255, green: 63/255, blue: 69/255, alpha: 0.8)
         cancelButton.layer.masksToBounds = true
         cancelButton.layer.cornerRadius = 10
         cancelButton.layer.borderColor = UIColor.lightGray.cgColor
@@ -70,10 +70,10 @@ class ChallengePageCell: UICollectionViewCell {
         addSubview(cancelButton)
         
         timerLabel = UILabel()
-        timerLabel.textColor = UIColor.white
+        timerLabel.textColor = UIColor.orange
         timerLabel.translatesAutoresizingMaskIntoConstraints = false
         timerLabel.font = UIFont(name: "KohinoorTelugu-Regular", size: 24)
-        timerLabel.backgroundColor = UIColor.init(red: 54/255, green: 63/255, blue: 69/255, alpha: 0.4)
+        timerLabel.backgroundColor = UIColor.init(red: 54/255, green: 63/255, blue: 69/255, alpha: 0.8)
         timerLabel.layer.masksToBounds = true
         timerLabel.layer.cornerRadius = 10
         timerLabel.layer.borderColor = UIColor.lightGray.cgColor
@@ -84,9 +84,9 @@ class ChallengePageCell: UICollectionViewCell {
         completedButton = UIButton()
         completedButton.setTitle("Challenge Completed", for: .normal)
         completedButton.isHidden = true
-        completedButton.setTitleColor(.white, for: .normal)
+        completedButton.setTitleColor(.orange, for: .normal)
         completedButton.titleLabel?.font = UIFont(name: "KohinoorTelugu-Regular", size: 28)
-        completedButton.backgroundColor = UIColor.init(red: 54/255, green: 63/255, blue: 69/255, alpha: 0.4)
+        completedButton.backgroundColor = UIColor.init(red: 54/255, green: 63/255, blue: 69/255, alpha: 0.8)
         completedButton.layer.masksToBounds = true
         completedButton.layer.cornerRadius = 10
         completedButton.layer.borderColor = UIColor.lightGray.cgColor
@@ -98,7 +98,12 @@ class ChallengePageCell: UICollectionViewCell {
         
         challengeLabel = UILabel()
         challengeLabel.translatesAutoresizingMaskIntoConstraints = false
-        challengeLabel.textColor = UIColor.white
+        challengeLabel.backgroundColor = UIColor.init(red: 54/255, green: 63/255, blue: 69/255, alpha: 0.8)
+        challengeLabel.layer.masksToBounds = true
+        challengeLabel.layer.cornerRadius = 10
+        challengeLabel.layer.borderColor = UIColor.lightGray.cgColor
+        challengeLabel.layer.borderWidth = 2
+        challengeLabel.textColor = UIColor.orange
         challengeLabel.font = UIFont(name: "KohinoorTelugu-Regular", size: 24)
         challengeLabel.textAlignment = .center
         challengeLabel.lineBreakMode = .byWordWrapping
@@ -263,7 +268,7 @@ class ChallengePageCell: UICollectionViewCell {
         timerLabel.text = "   Timer:           \(timeCopy / 3600): \((timeCopy % 3600)/60) : \((timeCopy % 3600)%60)"
         }
         else {
-            timerLabel.text = "   Timer:           0\(timeCopy / 3600): 0\((timeCopy % 3600)/60) : \((timeCopy % 3600)%60)"
+            timerLabel.text = "   Timer:           0\(timeCopy / 3600): \((timeCopy % 3600)/60) : \((timeCopy % 3600)%60)"
 
         }
         recordedTime =  "\(timeCopy / 3600): \((timeCopy % 3600)/60) : \((timeCopy % 3600)%60)"
