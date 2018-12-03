@@ -17,10 +17,11 @@ protocol ButtonDelegate: class {
 }
 
 class ChallengePageCell: UICollectionViewCell {
+    var challenge: Challenge!
     var timerLabel: UILabel!
     var timer: Timer!
-    var seconds = 60
-    var secondsCopy = 60
+    var time: Int!
+    var timeCopy: Int!
     var isTimerRunning = false
     var acceptButton: UIButton!
     var cancelButton: UIButton!
@@ -36,6 +37,7 @@ class ChallengePageCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         
         backgroundView = UIImageView(image: UIImage(named: "Orange Rectangle"))
         
@@ -67,7 +69,6 @@ class ChallengePageCell: UICollectionViewCell {
         addSubview(cancelButton)
         
         timerLabel = UILabel()
-        timerLabel.text = "   Timer:           \(seconds)"
         timerLabel.textColor = UIColor.white
         timerLabel.translatesAutoresizingMaskIntoConstraints = false
         timerLabel.font = UIFont(name: "KohinoorTelugu-Regular", size: 24)
@@ -98,14 +99,16 @@ class ChallengePageCell: UICollectionViewCell {
         challengeLabel.translatesAutoresizingMaskIntoConstraints = false
         challengeLabel.textColor = UIColor.white
         challengeLabel.font = UIFont(name: "KohinoorTelugu-Regular", size: 24)
-        challengeLabel.preferredMaxLayoutWidth = contentView.frame.width * 0.9
+        challengeLabel.textAlignment = .center
+        challengeLabel.lineBreakMode = .byWordWrapping
+        challengeLabel.numberOfLines = 20
         addSubview(challengeLabel)
         
         challengeImageView = UIImageView()
         addSubview(challengeImageView)
         
-
-
+        
+        
         setupConstraints()
         
     }
@@ -116,7 +119,7 @@ class ChallengePageCell: UICollectionViewCell {
     
     
     func setupConstraints() {
-
+        
         
         NSLayoutConstraint.activate([
             timerLabel.leadingAnchor.constraint(equalTo: contentView.centerXAnchor, constant: -contentView.frame.width / 2 + 24),
@@ -134,11 +137,11 @@ class ChallengePageCell: UICollectionViewCell {
             cancelButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: contentView.frame.width / 8),
             cancelButton.widthAnchor.constraint(equalToConstant: 150)
             ])
-
+        
         NSLayoutConstraint.activate([
             challengeLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             challengeLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -contentView.frame.height / 4),
-            //challengeLabel.widthAnchor.constraint(equalToConstant: contentView.frame.width - 48)
+            challengeLabel.widthAnchor.constraint(equalToConstant: contentView.frame.width - 48)
             ])
         NSLayoutConstraint.activate([
             challengeImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
@@ -151,28 +154,34 @@ class ChallengePageCell: UICollectionViewCell {
             ])
     }
     
-    @objc func completedButtonTapped(_ target: UIButton) {
-        
-        
-        
-        secondsCopy = seconds
-        cancelButton.isHidden = true
-        acceptButton.isHidden = false
-        timer.invalidate()
-        timerLabel.text = "   Timer:           \(seconds)"
-        isTimerRunning = false
-        canceledDelegate?.cancelButtonWasTapped()
-        completedDelegate?.completedButtonWasTapped()
-        
-        
-    }
     
     
     
     
-    func configure(for challenge: Challenge) {
+    
+    func configure() {
         challengeLabel.text = challenge.text
-        //challengeImageView.image = UIImage(cgImage: Challenge.imgURL)
+        
+        if challenge.timeToFinish == "five_minutes" {
+            time = 300
+            timeCopy = 300
+            timerLabel.text = "   Timer:           0\(time / 3600): 0\((time % 3600)/60) : \((time % 3600)%60)0"
+
+        }
+        if challenge.timeToFinish == "six_hours" {
+            time = 21600
+            timeCopy = 21600
+            timerLabel.text = "   Timer:           0\(time / 3600): 0\((time % 3600)/60) : \((time % 3600)%60)0"
+
+        }
+        if challenge.timeToFinish == "one_day" {
+            time = 86400
+            timeCopy = 86400
+            timerLabel.text = "   Timer:           \(time / 3600): 0\((time % 3600)/60) : \((time % 3600)%60)0"
+
+        }
+        
+
     }
     
     
@@ -180,6 +189,10 @@ class ChallengePageCell: UICollectionViewCell {
     // TODO: Change seconds to the time from the individual challenge
     
     @objc func acceptButtonTapped() {
+        NetworkManager.startChallenge(challenge_id: self.challenge.id, user_id: VariablesInstance.user!.id) { (user) in
+            
+        }
+        
         runTimer()
         acceptButton.isHidden = true
         cancelButton.isHidden = false
@@ -189,35 +202,71 @@ class ChallengePageCell: UICollectionViewCell {
     }
     
     @objc func cancelButtonTapped() {
-        secondsCopy = seconds
+        timeCopy = time
         cancelButton.isHidden = true
         acceptButton.isHidden = false
         completedButton.isHidden = true
         timer.invalidate()
-        timerLabel.text = "   Timer:           \(seconds)"
+        if time == 86400 {
+            timerLabel.text = "   Timer:           \(timeCopy / 3600): 0\((timeCopy % 3600)/60) : \((timeCopy % 3600)%60)"
+        }
+        else {
+            timerLabel.text = "   Timer:           0\(timeCopy / 3600): 0\((timeCopy % 3600)/60) : \((timeCopy % 3600)%60)"
+            
+        }
+
         isTimerRunning = false
         canceledDelegate?.cancelButtonWasTapped()
     }
     
+    @objc func completedButtonTapped(_ target: UIButton) {
+        NetworkManager.completeChallenge(challenge_id: self.challenge!.id, user_id: VariablesInstance.user!.id) { (user) in
+            
+        }
+        completedButton.isHidden = true
+        timeCopy = time
+        cancelButton.isHidden = true
+        acceptButton.isHidden = false
+        timer.invalidate()
+        if time == 86400 {
+            timerLabel.text = "   Timer:           \(timeCopy / 3600): 0\((timeCopy % 3600)/60) : \((timeCopy % 3600)%60)"
+        }
+        else {
+            timerLabel.text = "   Timer:           0\(timeCopy / 3600): 0\((timeCopy % 3600)/60) : \((timeCopy % 3600)%60)"
+            
+        }
+        isTimerRunning = false
+        completedDelegate?.completedButtonWasTapped()
+        
+        
+    }
     
-
+    
+    
     func runTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         isTimerRunning = true
-  }
-
+    }
+    
     @objc func updateTimer() {
-        secondsCopy -= 1
-        timerLabel.text = "   Timer:           \(secondsCopy / 3600): \((secondsCopy % 3600)/60) : \((secondsCopy % 3600)%60)"
-        recordedTime =  "\(secondsCopy / 3600): \((secondsCopy % 3600)/60) : \((secondsCopy % 3600)%60)"
-        if ( secondsCopy == 0 ) {
+        timeCopy -= 1
+        if time == 86400 {
+        timerLabel.text = "   Timer:           \(timeCopy / 3600): \((timeCopy % 3600)/60) : \((timeCopy % 3600)%60)"
+        }
+        else {
+            timerLabel.text = "   Timer:           0\(timeCopy / 3600): 0\((timeCopy % 3600)/60) : \((timeCopy % 3600)%60)"
+
+        }
+        recordedTime =  "\(timeCopy / 3600): \((timeCopy % 3600)/60) : \((timeCopy % 3600)%60)"
+        if ( timeCopy == 0 ) {
             timer.invalidate()
-            timerLabel.text = "   Timer:           \(secondsCopy / 3600): \((secondsCopy % 3600)/60) : \((secondsCopy % 3600)%60)"
+            timerLabel.text = "   Timer:           0\(time / 3600): 0\((time % 3600)/60) : \((time % 3600)%60)0"
             isTimerRunning = false
             canceledDelegate?.cancelButtonWasTapped()
         }
     }
     
     
-
+   
+    
 }

@@ -17,22 +17,19 @@ class MarketPlaceTableViewCell: UITableViewCell {
     var challengeImage: UIImageView!
     
     
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
         
         challengeImage = UIImageView()
         challengeImage.image = UIImage(named: "Default Profile Picture")
         challengeImage.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(challengeImage)
         
-     
-        
         
         
         nameLabel = UILabel()
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.text = "\(challenge.text)"
         nameLabel.textColor = .black
         nameLabel.sizeToFit()
         nameLabel.textAlignment = .left
@@ -41,16 +38,20 @@ class MarketPlaceTableViewCell: UITableViewCell {
         
         timeAllotedLabel = UILabel()
         timeAllotedLabel.translatesAutoresizingMaskIntoConstraints = false
-        timeAllotedLabel.text = "Time Alloted: \(challenge.timeToFinish)"
         timeAllotedLabel.textColor = .black
         timeAllotedLabel.sizeToFit()
         timeAllotedLabel.textAlignment = .left
         timeAllotedLabel.font = UIFont.systemFont(ofSize: 12, weight: .bold)
         contentView.addSubview(timeAllotedLabel)
         
-        // Initialization code
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+   
     override func updateConstraints() {
         super.updateConstraints()
         
@@ -70,6 +71,21 @@ class MarketPlaceTableViewCell: UITableViewCell {
             timeAllotedLabel.topAnchor.constraint(equalTo: nameLabel.topAnchor, constant: 24),
             timeAllotedLabel.leadingAnchor.constraint(equalTo: challengeImage.trailingAnchor, constant: 8)
             ])
+        
+    }
+    
+    func configure() {
+        nameLabel.text = "\(challenge.text)"
+        if challenge.timeToFinish == "five_minutes" {
+            timeAllotedLabel.text = "Time Alloted: Five Minutes"
+        }
+        if challenge.timeToFinish == "six_hours" {
+            timeAllotedLabel.text = "Time Alloted: Six Hours"
+
+        }
+        if challenge.timeToFinish == "one_day" {
+            timeAllotedLabel.text = "Time Alloted: One Day"
+        }
         
     }
 

@@ -28,11 +28,9 @@ class PersonViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getuserInfo()
-        print(self.person)
         
         
         view.backgroundColor = .white
-        
         
         
         Vline = UIImageView(image: UIImage(named: "Vline"))
@@ -188,7 +186,7 @@ class PersonViewController: UIViewController {
     }
     
     func getuserInfo() {
-        NetworkManager.getAUser(user_id: 1, completion: { (user,image)  in
+        NetworkManager.getAUser(user_id: (VariablesInstance.user?.id)!, completion: { (user,image)  in
             DispatchQueue.main.async {
                 
             self.person = user

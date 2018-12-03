@@ -24,8 +24,9 @@ class CompletedViewController: UIViewController {
         congratsLabel.translatesAutoresizingMaskIntoConstraints = false
         congratsLabel.textColor = UIColor.white
         congratsLabel.font = UIFont(name: "KohinoorTelugu-Regular", size: 24)
-        congratsLabel.text = "CHALLENGE COMPLETED \n \(challenge) \n\nTIME SPENT \n \(time) \n\n\n\n Bodacious levels increased by 42% \n\n ChallengeMe again!"
-        congratsLabel.preferredMaxLayoutWidth = view.frame.width * 0.9
+        congratsLabel.text = "CHALLENGE COMPLETED \n \(challenge) \n\nYou Did It In Under \n\(time) \n\n\n\n Bodacious levels increased by 42% \n\n ChallengeMe again!"
+        congratsLabel.lineBreakMode = .byWordWrapping
+        congratsLabel.numberOfLines = 20
         view.addSubview(congratsLabel)
         
         niceLabel = UILabel()

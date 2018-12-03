@@ -12,3 +12,6 @@ struct Variables {
     var friends: [User] = []
     var user: User? = nil
 }
+
+
+var VariablesInstance = Variables()

@@ -10,10 +10,12 @@ import UIKit
 
 class FriendsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var tableView: UITableView!
-   // var friends = Variables.friends
+    var users: [User]! = []
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getUsers()
         
         
         tableView = UITableView()
@@ -41,11 +43,12 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return self.users.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as! FriendTableViewCell
+        cell.user = self.users[indexPath.row]
         cell.awakeFromNib()
         cell.updateConstraints()
         return cell
@@ -55,6 +58,13 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
         return 120
     }
     
+    
+    func getUsers() {
+        NetworkManager.getUsers { (users) in
+            self.users = users
+            self.tableView.reloadData()
+        }
+    }
     
 }
 

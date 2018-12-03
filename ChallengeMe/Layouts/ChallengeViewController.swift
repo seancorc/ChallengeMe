@@ -38,13 +38,17 @@ class ChallengeViewController: UICollectionViewController, UICollectionViewDeleg
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        if let challenges = self.challenges {
+            return challenges.count
+        }
+        return 1
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! ChallengePageCell
         if let challengeArray = self.challenges {
-            cell.configure(for: challengeArray[indexPath.row])
+            cell.challenge = challengeArray[indexPath.row]
+            cell.configure()
         }
         cell.acceptedDelegate = self
         cell.canceledDelegate = self
@@ -86,8 +90,8 @@ extension ChallengeViewController: ButtonDelegate {
         let description = challenge?.text
         let time = challenge?.timeToFinish
         let completedViewController = CompletedViewController()
-        completedViewController.challenge = description
-        completedViewController.time = time
+        completedViewController.challenge = description!
+        completedViewController.time = time!
         
         let modalNavigationController = UINavigationController(rootViewController: completedViewController)
         let dismissButton = UIBarButtonItem(title: "Dismiss", style: .plain,

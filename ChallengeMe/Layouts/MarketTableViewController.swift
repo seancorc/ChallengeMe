@@ -68,13 +68,11 @@ class MarketTableViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("in here")
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as! MarketPlaceTableViewCell
         cell.challenge = self.challenges[indexPath.row]
-        cell.gifURL = self.gifs[indexPath.row]
-        cell.awakeFromNib()
-        //Awake from Nib needs to be called first
+        cell.configure()
         cell.updateConstraints()
+        cell.gifURL = self.gifs[indexPath.row]
         return cell
     }
     

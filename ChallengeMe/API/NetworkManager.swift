@@ -9,9 +9,12 @@
 import Foundation
 import Alamofire
 
-private let userEndpoint = "http://localhost:5000/api/users/"
-private let challengeEndpoint = "http://localhost:5000/api/challenges/"
-private let loginEndpoint = "http://localhost:5000/api/users/login/"
+private let userEndpoint = "http://35.243.148.8/api/users/"
+private let challengeEndpoint = "http://35.243.148.8/api/challenges/"
+private let loginEndpoint = "http://35.243.148.8/api/users/login/"
+private let signUpEndpoint = "http://35.243.148.8/api/users/signup/"
+private let completeChallengeEndpoint = "http://35.243.148.8/api/users/complete_challenge/"
+private let startChallengeEndpoint = "http://35.243.148.8/api/users/start_challenge/"
 
 
 
@@ -97,7 +100,6 @@ class NetworkManager {
             switch response.result {
             case .success(let data):
                 if let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) {
-                    print("here")
                     print(json)
                 }
                 // Create the JSON decoder
@@ -141,6 +143,90 @@ class NetworkManager {
                 let jsonDecoder = JSONDecoder()
                 if let user = try? jsonDecoder.decode(singleUserResponse.self, from: data) {
                     completion(user.data)
+                    
+                    
+                } else {
+                    print("Invalid Response Data")
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    static func signUp(username: String, password: String, completion: @escaping (User) -> Void) {
+        let parameters: [String:Any] = [
+            "password": password,
+            "username": username
+        ]
+        Alamofire.request(signUpEndpoint, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: [:]).validate().responseData { (response) in
+            switch response.result {
+            case .success(let data):
+                if let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) {
+                    print(json)
+                }
+                let jsonDecoder = JSONDecoder()
+                if let user = try? jsonDecoder.decode(singleUserResponse.self, from: data) {
+                    completion(user.data)
+                    
+                    
+                } else {
+                    print("Invalid Response Data")
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    
+    
+    static func startChallenge(challenge_id: Int, user_id: Int, completion: @escaping (ChallengeActivty) -> Void) {
+        let parameters: [String:Any] = [
+            "challenge_id": challenge_id,
+            "user_id": user_id
+        ]
+        Alamofire.request(startChallengeEndpoint, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: [:]).validate().responseData { (response) in
+            switch response.result {
+            case .success(let data):
+                if let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) {
+                    print(json)
+                }
+                let jsonDecoder = JSONDecoder()
+                if let challenge = try? jsonDecoder.decode(challengeActivityResponse.self, from: data) {
+                    completion(challenge.data)
+                    
+                    
+                } else {
+                    print("Invalid Response Data")
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    
+    
+    
+
+
+    
+    
+    static func completeChallenge(challenge_id: Int, user_id: Int, completion: @escaping (ChallengeActivty) -> Void) {
+        let parameters: [String:Any] = [
+            "challenge_id": challenge_id,
+            "user_id": user_id
+        ]
+        Alamofire.request(completeChallengeEndpoint, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: [:]).validate().responseData { (response) in
+            switch response.result {
+            case .success(let data):
+                if let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) {
+                    print(json)
+                }
+                let jsonDecoder = JSONDecoder()
+                if let challenge = try? jsonDecoder.decode(challengeActivityResponse.self, from: data) {
+                    completion(challenge.data)
                     
                     
                 } else {
