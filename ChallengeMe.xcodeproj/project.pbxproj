@@ -30,7 +30,6 @@
 		D6E774E421A385D000E9BDF2 /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E774E321A385D000E9BDF2 /* PersonViewController.swift */; };
 		F6196FDE21AB7F58009C9407 /* ChallengePageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6196FDD21AB7F58009C9407 /* ChallengePageCell.swift */; };
 		F62C1EB821A4AA490084892D /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62C1EB721A4AA490084892D /* Challenge.swift */; };
-		F62C1EBD21A4ADF70084892D /* ChallengeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62C1EBC21A4ADF70084892D /* ChallengeAPI.swift */; };
 		F65403DC21A5CE6C008BA22D /* ChallengeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65403DB21A5CE6C008BA22D /* ChallengeCollectionViewCell.swift */; };
 		F65403E121A5D37C008BA22D /* CongratsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65403E021A5D37C008BA22D /* CongratsViewController.swift */; };
 		F675AD2321ADA07F000888DD /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F675AD2221ADA07F000888DD /* ChallengeViewController.swift */; };
@@ -89,7 +88,6 @@
 		F2C370ECAF026314ECC8F2CA /* Pods-ChallengeMeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChallengeMeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChallengeMeTests/Pods-ChallengeMeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F6196FDD21AB7F58009C9407 /* ChallengePageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengePageCell.swift; sourceTree = "<group>"; };
 		F62C1EB721A4AA490084892D /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
-		F62C1EBC21A4ADF70084892D /* ChallengeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeAPI.swift; sourceTree = "<group>"; };
 		F65403DB21A5CE6C008BA22D /* ChallengeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCollectionViewCell.swift; sourceTree = "<group>"; };
 		F65403E021A5D37C008BA22D /* CongratsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsViewController.swift; sourceTree = "<group>"; };
 		F675AD2221ADA07F000888DD /* ChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
@@ -231,7 +229,6 @@
 			isa = PBXGroup;
 			children = (
 				D6DD296721B30CE0008987F0 /* NetworkManager.swift */,
-				F62C1EBC21A4ADF70084892D /* ChallengeAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -489,7 +486,6 @@
 				D6E774E421A385D000E9BDF2 /* PersonViewController.swift in Sources */,
 				D6BB7B8121B08394007D6253 /* FriendsViewController.swift in Sources */,
 				D46718A421B47BC7005083A8 /* CompletedViewController.swift in Sources */,
-				F62C1EBD21A4ADF70084892D /* ChallengeAPI.swift in Sources */,
 				F65403DC21A5CE6C008BA22D /* ChallengeCollectionViewCell.swift in Sources */,
 				D6BB7B7F21B0440F007D6253 /* MainTabBarController.swift in Sources */,
 				D657471E21B47709000A299F /* Variables.swift in Sources */,
